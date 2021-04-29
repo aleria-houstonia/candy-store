@@ -1,0 +1,38 @@
+.card__item {
+    display: flex;
+}
+.card-text {
+    font-size: 46px;
+    line-height: 51px;
+    color: #303232;
+    text-shadow: none;
+    margin: 0;
+    text-align: center;
+}
+
+.card_p {
+    font-size: 16px;
+    text-align: center;
+    line-height: 25px;
+}
+
+.card__item_text {
+    padding: 70px;
+}
+.card-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card__item_img {
+    clip-path: polygon(0 0, 100% 0, 75% 100%, 0 100%);
+}
+.card__item_second {
+    display: flex;
+}
+.card__item_text_second {
+    padding: 0;
+}
+.card__item_img_second {
+    clip-path: polygon(75px 0px, 100% 0, 100% 100%, 0 100%);
+}

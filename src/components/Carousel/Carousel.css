@@ -1,0 +1,13 @@
+.item__title {
+    color: #800000;
+    font-size: x-large;
+    text-align: center;
+    line-height: 1.2;
+    margin-bottom: 12px;
+}
+.item__p {
+    text-align: center;
+    font-size: large;
+    font-size: 21px;
+    line-height: 1.2;
+}
