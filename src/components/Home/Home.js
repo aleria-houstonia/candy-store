@@ -1,11 +1,14 @@
 import React from "react";
-import ProductsList from "../Products/ProductsList";
 import "./Home.css";
-
+import Carousel from "../Carousel/Carousel";
+import Slider from "../Slider/Slider";
+import CardDescription from "../CardDescription/CardDescription";
 const Home = () => {
     return (
         <div>
-            <ProductsList />
+            <Slider />
+            <Carousel />
+            <CardDescription />
         </div>
     );
 };
