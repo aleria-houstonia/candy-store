@@ -1,0 +1,25 @@
+.title_string {
+    background: #ea9d9b;
+    height: 100px;
+    text-align: center;
+    font-size: 30px;
+    overflow: hidden;
+}
+.text {
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+    font-family: "Fjalla One", sans-serif;
+    animation-name: text;
+    animation-duration: 3s;
+    animation-delay: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+@keyframes text {
+    0% {
+        padding: 100px;
+    }
+    to {
+        padding: 30px;
+    }
+}
