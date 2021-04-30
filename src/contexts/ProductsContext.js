@@ -21,10 +21,12 @@ const reducer = (state = INIT_STATE, action) => {
 };
 const ProductsContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, INIT_STATE);
+
     const postProduct = (products) => {
         axios.post("http://localhost:8000/products", products);
         getProducts();
     };
+
     async function getProducts() {
         let { data } = await axios("http://localhost:8000/products");
         dispatch({
@@ -41,7 +43,10 @@ const ProductsContextProvider = ({ children }) => {
             payload: data,
         });
     }
-
+    async function deleteCard(id) {
+        await axios.delete(`http://localhost:8000/products/${id}`);
+        getProducts();
+    }
     return (
         <productContext.Provider
             value={{
@@ -50,6 +55,7 @@ const ProductsContextProvider = ({ children }) => {
                 postProduct,
                 getProductDetails,
                 getProducts,
+                deleteCard,
             }}
         >
             {children}
