@@ -1,0 +1,13 @@
+/* #card-products:hover{
+
+} */
+
+.productList {
+    display: flex;
+    flex-wrap: wrap;
+
+    margin: 40px;
+}
+#productCard {
+    margin: 20px;
+}

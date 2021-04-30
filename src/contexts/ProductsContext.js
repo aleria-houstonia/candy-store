@@ -28,10 +28,12 @@ const reducer = (state = INIT_STATE, action) => {
 };
 const ProductsContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, INIT_STATE);
+
     const postProduct = (products) => {
         axios.post("http://localhost:8000/products", products);
         getProducts();
     };
+
     async function getProducts() {
         let { data } = await axios("http://localhost:8000/products");
         dispatch({
@@ -48,6 +50,7 @@ const ProductsContextProvider = ({ children }) => {
             payload: data,
         });
     }
+
     
   function addProductToCart(product){
     let cart =JSON.parse(localStorage.getItem('cart'))
@@ -130,6 +133,12 @@ const ProductsContextProvider = ({ children }) => {
      
    }
 
+
+    async function deleteCard(id) {
+        await axios.delete(`http://localhost:8000/products/${id}`);
+        getProducts();
+    }
+
     return (
         <productContext.Provider
             value={{
@@ -145,6 +154,8 @@ const ProductsContextProvider = ({ children }) => {
                 changeProductCount,
                 checkProductInCart,
                 deleteCartProducts
+                deleteCard,
+
             }}
         >
             {children}

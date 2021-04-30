@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { productContext } from "../../contexts/ProductsContext";
 import ProductCard from "./ProductCard";
-
+import "./Products.css";
 const ProductsList = () => {
     const { getProducts, productData } = useContext(productContext);
     useEffect(() => {
