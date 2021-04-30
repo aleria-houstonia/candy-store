@@ -6,7 +6,7 @@ const Shop = () => {
         <>
             <div>
                 <div className="title_img">
-                    <img src="https://cdn11.bigcommerce.com/s-7c08qbh/images/stencil/original/p/holiday_1400x260_2018web__36845.original.jpg'" />
+                    {/* <img src="https://cdn11.bigcommerce.com/s-7c08qbh/images/stencil/original/p/holiday_1400x260_2018web__36845.original.jpg'" /> */}
                 </div>
             </div>
             <br></br>
@@ -46,10 +46,9 @@ const Shop = () => {
             </div>
             <div className="gifts">
                 <div className="gifts__card">
-                    <div className="wraper">
+                    <div className="sidebar">
                         <div className="sidebar__menu">
                             <a href="#">
-                                {" "}
                                 <img src="https://cdn11.bigcommerce.com/s-7c08qbh/product_images/uploaded_images/fuhgettaboutiteditblock.jpg" />{" "}
                             </a>
                         </div>
