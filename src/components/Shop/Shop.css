@@ -1,0 +1,36 @@
+.title_img {
+    background-image: url("https://cdn11.bigcommerce.com/s-7c08qbh/images/stencil/original/p/holiday_1400x260_2018web__36845.original.jpg");
+    height: 200px;
+}
+.title__text {
+    text-align: center;
+    color: #800000;
+    font-size: x-large;
+}
+
+.title__p {
+    text-align: center;
+    font-size: large;
+}
+.title__p_first {
+    font-size: x-large;
+}
+.sidebar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    justify-content: space-between;
+}
+.sidebar__menu > a > img {
+    width: 300px;
+    height: 300px;
+    margin: 20px;
+    /* justify-content: space-between; */
+}
+
+.sidebar__menu:hover {
+    background-color: black;
+
+    border: none;
+}
