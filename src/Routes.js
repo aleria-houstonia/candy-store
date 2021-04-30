@@ -12,6 +12,7 @@ import AddProduct from "./components/AddProduct/AddProduct";
 import Shop from "./components/Shop/Shop";
 import Locations from "./components/Locations/Locations";
 import ProductsList from "./components/Products/ProductsList";
+import AllDescription from "./components/AllDescription/AllDescription";
 const Routes = () => {
     return (
         <ProductsContextProvider>
@@ -26,11 +27,7 @@ const Routes = () => {
                         <Route exact path="/cart" component={Cart} />
                         <Route exact path="/add" component={AddProduct} />
                         <Route exact path="/location" component={Locations} />
-                        <Route
-                            exact
-                            path="/products"
-                            component={ProductsList}
-                        />
+                        <Route exact path="/all" component={AllDescription} />
                     </Switch>
                     <Footer />
                 </BrowserRouter>
