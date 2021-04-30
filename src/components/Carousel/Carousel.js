@@ -10,8 +10,7 @@ const MainCarousel = () => {
                 <h2 className="item__title">
                     <strong>"DELICIOUS GIFTS FOR ANY OCCASION" </strong>
                 </h2>
-                <span> </span>
-                <p className="item__p"></p>
+
                 <p className="item__p">
                     "Gourmet gift baskets are the perfect choice every time,
                     whether you’re buying for a loved one, an important business
@@ -20,8 +19,7 @@ const MainCarousel = () => {
                     and smoked meats delivered straight to their door."
                 </p>
             </div>
-            <div>
-                <br></br>
+            <div className="carousel__item">
                 <h2 className="item__title">
                     <strong>"SHOPPING FOR MOM? ENJOY FREE SHIPPING ON"</strong>
                 </h2>

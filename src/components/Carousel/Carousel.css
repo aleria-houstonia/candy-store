@@ -8,6 +8,10 @@
 .item__p {
     text-align: center;
     font-size: large;
-    font-size: 21px;
-    line-height: 1.2;
+    font-size: 23px;
+    line-height: 32px;
+    padding: 12px 0 48px;
+}
+.carousel__item {
+    margin: 55px;
 }
