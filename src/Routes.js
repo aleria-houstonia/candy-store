@@ -11,8 +11,14 @@ import ProductsContextProvider from "./contexts/ProductsContext";
 import AddProduct from "./components/AddProduct/AddProduct";
 import Shop from "./components/Shop/Shop";
 import Locations from "./components/Locations/Locations";
+import PaymentForm from "./components/Payment/Payment";
+import OrderSummary from "./components/OrderSummary/OrderSummary";
 import ProductsList from "./components/Products/ProductsList";
+
 import AllDescription from "./components/AllDescription/AllDescription";
+
+
+
 const Routes = () => {
     return (
         <ProductsContextProvider>
@@ -27,7 +33,17 @@ const Routes = () => {
                         <Route exact path="/cart" component={Cart} />
                         <Route exact path="/add" component={AddProduct} />
                         <Route exact path="/location" component={Locations} />
+
                         <Route exact path="/all" component={AllDescription} />
+
+                        <Route exact path="/payment" component={PaymentForm}/>
+                        <Route exact path="/order" component={OrderSummary}/>
+                        <Route
+                            exact
+                            path="/products"
+                            component={ProductsList}
+                        />
+
                     </Switch>
                     <Footer />
                 </BrowserRouter>
