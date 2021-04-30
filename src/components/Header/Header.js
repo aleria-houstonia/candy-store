@@ -46,7 +46,7 @@ const Header = () => {
                                 <b></b>
                             </li>
                             <li class="navbar__item">
-                                <a href="#">Cart</a>{" "}
+                                <Link to="/cart">Cart</Link>
                             </li>
                         </ul>
                     </div>
