@@ -10,6 +10,7 @@ import AuthProvider from "./contexts/AuthContext";
 import ProductsContextProvider from "./contexts/ProductsContext";
 import AddProduct from "./components/AddProduct/AddProduct";
 import Shop from "./components/Shop/Shop";
+import Locations from "./components/Locations/Locations";
 const Routes = () => {
     return (
         <ProductsContextProvider>
@@ -23,6 +24,7 @@ const Routes = () => {
                         <Route path="/shop" component={Shop} />
                         <Route exact path="/cart" component={Cart} />
                         <Route exact path="/add" component={AddProduct} />
+                        <Route exact path="/location" component={Locations} />
                     </Switch>
                     <Footer />
                 </BrowserRouter>
