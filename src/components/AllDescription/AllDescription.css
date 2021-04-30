@@ -1,0 +1,38 @@
+.table__cart {
+    display: flex;
+    color: #800000;
+    font-size: x-large;
+}
+.table__cart_subtitle {
+    font-size: 20px;
+    text-align: center;
+}
+.table__cart_title {
+    font-size: 50px;
+    text-align: center;
+}
+
+.table__cart_quick {
+    color: black;
+    font-size: 30px;
+    text-align: center;
+    padding-bottom: 60px;
+}
+
+/* .table__cart_desc {
+    padding: 20px;
+} */
+.btn {
+    display: flex;
+    justify-content: center;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+/* .table__cart {
+    
+   
+}  */
+.table__cart_quick_subtitle {
+    padding-left: 100px;
+    padding-right: 70px;
+}
