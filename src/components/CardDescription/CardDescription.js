@@ -8,14 +8,14 @@ const CardDescription = () => {
                 <h2 className="item__title">
                     <strong>"DELICIOUS GIFTS FOR ANY OCCASION" </strong>
                 </h2>
-                <span> </span>
 
-                <p className="item__p">
+                <p className="item__first_text">
                     "Gourmet gift baskets are the perfect choice every time,
-                    whether you’re buying for a loved one, an important business
-                    client, or for yourself. After all, who doesn’t love an
-                    overflowing crate filled with the finest artisanal cheeses
-                    and smoked meats delivered straight to their door."
+                    whether you’re buying for a <br /> loved one, an important
+                    business client, or for yourself. After all, who doesn’t
+                    love an overflowing crate filled <br /> with the finest
+                    artisanal cheeses and smoked meats delivered straight to
+                    their door."
                 </p>
             </div>
             <div className="card">
@@ -35,7 +35,7 @@ const CardDescription = () => {
                             surprise her with gourmet delights!
                         </p>
                         <div className="card-btn">
-                            <button className="btn">SHOP NOW</button>
+                            {/* <button className="btn">SHOP NOW</button> */}
                         </div>
                     </div>
                 </div>
@@ -53,7 +53,7 @@ const CardDescription = () => {
                             cheeses.
                         </p>
                         <div className="card-btn">
-                            <button className="btn">SHOP NOW</button>
+                            {/* <button className="btn">SHOP NOW</button> */}
                         </div>
                     </div>
                     <div className="card__item_img_second">
