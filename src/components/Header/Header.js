@@ -36,7 +36,7 @@ const Header = () => {
                                 <a href="#">Blog</a>
                             </li>
                             <li class="navbar__item">
-                            <Link to="/events">Events</Link>
+                                <Link to="/events">Events</Link>
                             </li>
                             <li class="navbar__item">
                                 <a href="#">Contact</a>
@@ -48,7 +48,6 @@ const Header = () => {
                             <li class="navbar__item">
                                 <Link to="/cart">Cart</Link>
                             </li>
-                            
                         </ul>
                     </div>
                 </div>
@@ -77,10 +76,10 @@ const Header = () => {
                                     data-out="fadeOutUp"
                                 >
                                     <li>
-                                        <a href="#">
+                                        <Link to="/products">
                                             {" "}
                                             GIFTS<span></span>{" "}
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
                                         <a href="#" data-hover="About   ">

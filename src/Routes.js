@@ -14,7 +14,6 @@ import Locations from "./components/Locations/Locations";
 import PaymentForm from "./components/Payment/Payment";
 import ProductsList from "./components/Products/ProductsList";
 import Events from "./components/Events/Events";
-
 import AllDescription from "./components/AllDescription/AllDescription";
 
 const Routes = () => {
@@ -32,10 +31,8 @@ const Routes = () => {
                         <Route exact path="/add" component={AddProduct} />
                         <Route exact path="/location" component={Locations} />
                         <Route exact path="/all" component={AllDescription} />
-                        <Route exact path="/payment" component={PaymentForm}/>
-                        <Route exact path="/events" component={Events}/>
-                                     
-
+                        <Route exact path="/payment" component={PaymentForm} />
+                        <Route exact path="/events" component={Events} />
 
                         <Route
                             exact
