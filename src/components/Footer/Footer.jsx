@@ -15,7 +15,7 @@ const Footer = () => {
                     <img src="https://cdn3.bigcommerce.com/s-7c08qbh/templates/__custom/images/footer_newyork_time_logo.png?t=1526915043" />
                 </div>
                 <p className="footer-feat-text">
-                    © 2021 ALL RIGHTS RESERVED
+                    тзь ыефке © 2021 ALL RIGHTS RESERVED
                     <br /> Di Bruno Bros.
                 </p>
                 <p className="footer-feat-text-two">PRIVACY POLICY</p>
