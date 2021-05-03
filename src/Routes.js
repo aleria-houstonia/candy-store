@@ -48,7 +48,7 @@ const Routes = () => {
                 <Route exact path="/" component={Home} />
                 <Route path="/forgot-password" component={ForgotPassword} />
                 <Route path="/shop" component={Shop} />
-                <Route exact path="/dash" component={Dashboard} />
+                {/* <Route exact path="/dash" component={Dashboard} /> */}
                 <PrivateRoute
                     path="/update-profile"
                     component={UpdateProfile}

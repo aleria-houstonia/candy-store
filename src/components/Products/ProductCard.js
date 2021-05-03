@@ -10,13 +10,14 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import { red } from "@material-ui/core/colors";
 import FavoriteIcon from "@material-ui/icons/Favorite";
-
+import { useAuth } from "../../contexts/AuthContext";
 import DeleteIcon from "@material-ui/icons/Delete";
 import "./Products.css";
 import { productContext } from "../../contexts/ProductsContext";
 import { Link } from "react-router-dom";
 import { Box } from "@material-ui/core";
 import { Rating } from "@material-ui/lab";
+import { adminUID } from "../../helpers/API";
 const useStyles = makeStyles((theme) => ({
     root: {
         width: 300,
@@ -42,6 +43,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ProductCard = (props) => {
+    const { currentUser } = useAuth();
     const [value, setValue] = React.useState(Math.floor(Math.random() * 6));
     const { deleteCard, getProducts } = useContext(productContext);
     useEffect(() => {
@@ -138,13 +140,15 @@ const ProductCard = (props) => {
                     <IconButton aria-label="add to favorites">
                         <FavoriteIcon />
                     </IconButton>
-                    <IconButton>
-                        <DeleteIcon
-                            onClick={(e) => {
-                                deleteCard(props.item.id, props.history);
-                            }}
-                        />
-                    </IconButton>
+                    {currentUser && currentUser.uid === adminUID ? (
+                        <IconButton>
+                            <DeleteIcon
+                                onClick={(e) => {
+                                    deleteCard(props.item.id, props.history);
+                                }}
+                            />
+                        </IconButton>
+                    ) : null}
                     <IconButton>
                         <ShoppingCartIcon />
                     </IconButton>

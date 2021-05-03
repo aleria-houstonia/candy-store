@@ -110,6 +110,10 @@ const ProductsContextProvider = ({ children }) => {
             payload: cart,
         });
     }
+    async function saveTopic(id, newTopic) {
+        axios.patch(`http://localhost:8000/products/${id}`, newTopic);
+        getProductDetails(id);
+    }
     function changeProductCount(count, id) {
         let cart = JSON.parse(localStorage.getItem("cart"));
         cart.product = cart.product.map((elem) => {
@@ -168,6 +172,7 @@ const ProductsContextProvider = ({ children }) => {
                 cartLength: state.cartLength,
                 productDetails: state.productDetails,
                 searchData: state.searchData,
+                saveTopic,
                 searchh,
                 getProductDetails,
                 postProduct,
