@@ -15,7 +15,10 @@ const Cart = () => {
         deleteCartProducts,
     } = useContext(productContext);
     const [totalPrice, setTotalPrice] = useState();
-
+    function orderAction() {
+        localStorage.setItem("cart", JSON.stringify(0));
+        setModal({ ...modal, modal1: true });
+    }
     useEffect(() => {
         getCart();
     }, []);
@@ -89,10 +92,7 @@ const Cart = () => {
                         Total: {calcTotalPrice(cart.products)} $
                     </h4>
 
-                    <button
-                        className="btn-form"
-                        onClick={() => setModal({ ...modal, modal1: true })}
-                    >
+                    <button className="btn-form" onClick={orderAction}>
                         Order
                     </button>
                 </div>
