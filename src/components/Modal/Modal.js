@@ -7,29 +7,32 @@ import Checkbox from '@material-ui/core/Checkbox';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import IconButton from "@material-ui/core/IconButton";
 import {Link} from 'react-router-dom';
-import '../OrderSummary/OrderSummary.css';
-import Paper from '@material-ui/core/Paper';
-const OrderSummary = () => {
+import CloseIcon from '@material-ui/icons/Close';
+import "../Modal/Modal.css"
+import "../Cart/Cart"
+
+
+const Modal = props=>{
     return (
-        <div className="order">
+        <div className={`modal_wrapper ${props.isOpened ? 'open':'close'}`} 
+        styles={{...props.style}}>
+            <div className='modal_body'>
+                <div className="modal_close" onClick={props.onModalClose}><IconButton><CloseIcon/></IconButton></div>
+          
         <div className="order_list" style={{maxWidth:"600px"}}>
-             <h3 className="page-heading">Secure checkout</h3>
+        <h5 className="page-heading">Secure checkout</h5>
             <IconButton style={{color:"#ea9d9b"}}><CheckCircleIcon/></IconButton> 
             <span className="customer">Customer</span>
-             <h3>Checking out as a Guest? You'll be able to save your details to create an account with us later.
-            </h3>
-           
-            <input placeholder="Email Address" className="inp-input"/>
-            <input type="checkbox"/><span className="checkbox-title">Yes, I want to hear about special offers!</span>
-            <React.Fragment>
-                <div className="address">
-              
-      <Typography variant="h6" gutterBottom>
+             <h5>Checking out as a Guest? You'll be able to save your details to create an account with us later.
+            </h5>
+            <input placeholder="Email Address" className="order_input" />
+            <React.Fragment>        
+      <Typography variant="h5" gutterBottom>
         Shipping address
       </Typography>
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
-          <TextField className="inp-input"
+          <TextField style={{borderBottom:"2px solid tomato"}}
             required
             id="firstName"
             name="firstName"
@@ -39,7 +42,7 @@ const OrderSummary = () => {
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <TextField className="inp-input"
+          <TextField style={{borderBottom:"2px solid tomato"}}
             required
             id="lastName"
             name="lastName"
@@ -49,7 +52,7 @@ const OrderSummary = () => {
           />
         </Grid>
         <Grid item xs={12}>
-          <TextField className="inp-input"
+          <TextField style={{borderBottom:"2px solid tomato"}}
             required
             id="address1"
             name="address1"
@@ -59,7 +62,7 @@ const OrderSummary = () => {
           />
         </Grid>
         <Grid item xs={12}>
-          <TextField className="inp-input"
+          <TextField style={{borderBottom:"2px solid tomato"}}
             id="address2"
             name="address2"
             label="Address line 2"
@@ -68,7 +71,7 @@ const OrderSummary = () => {
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <TextField className="inp-input"
+          <TextField style={{borderBottom:"2px solid tomato"}}
             required
             id="city"
             name="city"
@@ -78,10 +81,10 @@ const OrderSummary = () => {
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <TextField className="inp-input" id="state" name="state" label="State/Province/Region" fullWidth />
+          <TextField  id="state" name="state" label="State/Province/Region" fullWidth style={{borderBottom:"2px solid tomato"}}/>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <TextField className="inp-input"
+          <TextField style={{borderBottom:"2px solid tomato"}}
             required
             id="zip"
             name="zip"
@@ -91,7 +94,7 @@ const OrderSummary = () => {
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <TextField className="inp-input"
+          <TextField style={{borderBottom:"2px solid tomato"}}
             required
             id="country"
             name="country"
@@ -101,46 +104,21 @@ const OrderSummary = () => {
           />
         </Grid> 
       </Grid> 
-      </div>
-      <Grid item xs={12}>
+    </React.Fragment>
+        <Grid item xs={12}>    
           <FormControlLabel 
             control={<Checkbox color="secondary" name="saveAddress" value="yes" />}
             label="Use this address for payment details"
           />  
+          <h5 className="modal_total">Total price: {props.totalPrice} $</h5>
           <Link to='/payment'><button className="order-next">NEXT</button>
           </Link>  
         </Grid>
-    </React.Fragment>
-        <div>
-                <Grid>
-                    <Paper>
-                    <h2>Order Summary</h2>
-                    <h6>Edit Cart</h6>
-                    <h5>Gift Message:</h5>
-                      {/* <ul>{cart.products.map(elem=>(
-                <li key={elem.item.id}
-                <li><img style={{width:"100px", height:"100px"}} src={elem.item.image}/></li>
-           <li >{elem.item.title}</li>
-           <li Subtotal>{elem.item.price}</li>
-           <li>{elem.subPrice}</li>
-          
-           </li>
-            </ul>
-            ))}  */}
-           <h3 className="coupon">Coupon/Gift Certificate</h3>
-           <input type="text" />
-           <button className="order-next">Apply</button>
-           <h6>Promo codes not valid on products that ship separately, gift cards or certificates & select
-               monthly clubs. Other exclusions may apply.
-
-           </h6>
-           {/* <h2>Total:{calcTotalPrice(cart.products)}</h2> */} 
-             </Paper>
-             </Grid>
-              </div>
              </div>
-        </div>
+             </div>
+             </div>
+        
     )
 }
 
-export default OrderSummary
+export default Modal

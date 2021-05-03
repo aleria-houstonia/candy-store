@@ -12,6 +12,6 @@ export function calcTotalPrice(products){
 }
 
 export function getCountProductsInCart(){
-    let cart =JSON.parse(localStorage.getItem('cart'))
+    let cart = JSON.parse(localStorage.getItem('cart'))
     return cart ? cart.products.length :0
    }

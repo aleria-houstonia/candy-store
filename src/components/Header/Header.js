@@ -36,7 +36,7 @@ const Header = () => {
                                 <a href="#">Blog</a>
                             </li>
                             <li class="navbar__item">
-                                <a href="#">Events</a>
+                            <Link to="/events">Events</Link>
                             </li>
                             <li class="navbar__item">
                                 <a href="#">Contact</a>
@@ -48,6 +48,7 @@ const Header = () => {
                             <li class="navbar__item">
                                 <Link to="/cart">Cart</Link>
                             </li>
+                            
                         </ul>
                     </div>
                 </div>
