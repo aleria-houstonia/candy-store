@@ -2,6 +2,7 @@ import React from 'react'
 import {useState} from 'react'
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import '../Events/Events.css'
 const Events = () => {
     const [value, onChange] = useState(new Date());
     return (
@@ -15,9 +16,9 @@ const Events = () => {
             </div>
             <div className="calendar">
             <Calendar
-        onChange={onChange}
-        value={value}
-      />
+                onChange={onChange}
+                value={value}
+            />
 
 
             </div>
