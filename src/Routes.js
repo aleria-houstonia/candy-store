@@ -40,7 +40,6 @@ const Routes = () => {
                 <PrivateRoute path="/cart" component={Cart} />
                 <PrivateRoute path="/payment" component={PaymentForm} />
                 {/* <PrivateRoute path="/order" component={OrderSummary} /> */}
-                <PrivateRoute path="/payment" component={PaymentForm} />
                 <AdminRoutes path="/add" component={AddProduct} />
                 <Route exact path="/location" component={Locations} />
                 <Route exact path="/products" component={ProductsList} />

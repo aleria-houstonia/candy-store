@@ -85,7 +85,7 @@ const ProductsContextProvider = ({ children }) => {
                 (elem) => elem.item.id !== product.id
             );
         } else {
-            cart.product.push(newProduct);
+            cart.products.push(newProduct);
         }
 
         newProduct.subPrice = calcSubPrice(newProduct);
@@ -116,7 +116,7 @@ const ProductsContextProvider = ({ children }) => {
     }
     function changeProductCount(count, id) {
         let cart = JSON.parse(localStorage.getItem("cart"));
-        cart.product = cart.product.map((elem) => {
+        cart.product = cart.products.map((elem) => {
             if (elem.item.id === id) {
                 elem.count = count;
                 elem.subPrice = calcSubPrice(elem);

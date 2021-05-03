@@ -45,7 +45,9 @@ const useStyles = makeStyles((theme) => ({
 const ProductCard = (props) => {
     const { currentUser } = useAuth();
     const [value, setValue] = React.useState(Math.floor(Math.random() * 6));
-    const { deleteCard, getProducts } = useContext(productContext);
+    const { deleteCard, getProducts, addProductToCart } = useContext(
+        productContext
+    );
     useEffect(() => {
         getProducts(props.history);
     }, []);
@@ -149,7 +151,7 @@ const ProductCard = (props) => {
                             />
                         </IconButton>
                     ) : null}
-                    <IconButton>
+                    <IconButton onClick={() => addProductToCart(props.item)}>
                         <ShoppingCartIcon />
                     </IconButton>
                 </CardActions>
