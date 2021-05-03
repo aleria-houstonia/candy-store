@@ -1,7 +1,11 @@
 import axios from "axios";
 import React, { useReducer } from "react";
 // import JSON_API from "../helpers/constants";
-import { calcSubPrice, calcTotalPrice, getCountProductsInCart } from "../helpers/calcPrice";
+import {
+    calcSubPrice,
+    calcTotalPrice,
+    getCountProductsInCart,
+} from "../helpers/calcPrice";
 
 export const productContext = React.createContext();
 
@@ -9,7 +13,7 @@ const INIT_STATE = {
     productData: [],
     productDetails: null,
     cart: {},
-    cartLength: getCountProductsInCart()
+    cartLength: getCountProductsInCart(),
 };
 
 const reducer = (state = INIT_STATE, action) => {
@@ -19,9 +23,9 @@ const reducer = (state = INIT_STATE, action) => {
         case "GET_PRODUCT_DETAILS":
             return { ...state, productDetails: action.payload };
         case "GET_CART":
-                return {...state,cart:action.payload}
-                case  "CHANGE_CART_COUNT":
-                  return {...state, cartLength:action.payload}    
+            return { ...state, cart: action.payload };
+        case "CHANGE_CART_COUNT":
+            return { ...state, cartLength: action.payload };
         default:
             return state;
     }
@@ -50,6 +54,8 @@ const reducer = (state = INIT_STATE, action) => {
             payload: data,
         });
     }
+
+
 
     
   function addProductToCart(product){
@@ -136,6 +142,12 @@ const reducer = (state = INIT_STATE, action) => {
    }
 
 
+        dispatch({
+            type: "CHANGE_CART_COUNT",
+            payload: toDelete.product.length,
+        });
+    }
+
     async function deleteCard(id) {
         await axios.delete(`http://localhost:8000/products/${id}`);
         getProducts();
@@ -156,7 +168,10 @@ const reducer = (state = INIT_STATE, action) => {
                 changeProductCount,
                 checkProductInCart,
                 deleteCartProducts,
+
+
                 deleteCard
+
 
             }}
         >
