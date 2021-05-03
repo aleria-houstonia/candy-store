@@ -10,8 +10,8 @@ import AddProduct from "./components/AddProduct/AddProduct";
 import Shop from "./components/Shop/Shop";
 import Locations from "./components/Locations/Locations";
 import PaymentForm from "./components/Payment/Payment";
-import OrderSummary from "./components/OrderSummary/OrderSummary";
 import ProductsList from "./components/Products/ProductsList";
+
 import AllDescription from "./components/AllDescription/AllDescription";
 import Signup from "./components/AuthThings/Signup";
 // import { Dashboard } from "@material-ui/icons";
@@ -23,6 +23,8 @@ import PrivateRoute from "./PrivateRoute";
 import { useAuth } from "../src/contexts/AuthContext";
 import { publicRoutes, userRoutes } from "./Routesagain";
 import AdminRoutes from "./AdminRoutes";
+import Events from "./components/Events/Events";
+
 const Routes = () => {
     const { currentUser } = useAuth();
 
@@ -53,6 +55,8 @@ const Routes = () => {
                     path="/update-profile"
                     component={UpdateProfile}
                 />
+                <Route exact path="/events" component={Events} />
+
                 {/* <Footer />  */}
             </BrowserRouter>
         </ProductsContextProvider>

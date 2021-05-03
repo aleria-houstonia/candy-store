@@ -1,61 +1,88 @@
-
-import LinearProgress from '@material-ui/core/LinearProgress';
-import React, { useContext,useEffect, useState} from 'react';
+import { CircularProgress } from "@material-ui/core";
+import React, { useContext, useEffect,useState } from "react";
 import { productContext } from "../../contexts/ProductsContext";
+import { calcTotalPrice } from "../../helpers/calcPrice";
+import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from '@material-ui/icons/Delete';
 import "./Cart.css";
-import {calcTotalPrice} from '../../helpers/calcPrice';
-import IconButton from "@material-ui/core/IconButton";
-import {Link} from 'react-router-dom';
+import Modal from "../Modal/Modal";
+
 
 const Cart = () => {
-    const {getCart, cart, changeProductCount, deleteCartProducts} =useContext(productContext)
-    useEffect(()=>{
-        getCart()
-    },[])
+    const { cart, getCart, changeProductCount,deleteCartProducts } = useContext(productContext);
+    const [totalPrice, setTotalPrice] = useState()
+   
+    useEffect(() => {
+        getCart();
+    }, []);
+    const [modal, setModal] = useState({modal1:false})
+
+    useEffect(() => {
+        if(cart?.products && cart?.products.length > 0){
+            setTotalPrice(calcTotalPrice(cart.products))
+        }
+    },[cart])
     return (
         <div className="cart">
-           
-            {cart.product ? (
-
-          
-            <div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Image</th>
-                            <th>Title</th>
-                            <th>Price</th>
-                            <th>Count</th>
-                            <th>SubPrice</th>
-                            <th>Delete</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {cart.product.map(elem=>(
-                        <tr key={elem.item.id}>
-                            <td><img style={{width:"150px", height:"150px"}} src={elem.item.image} alt="product-img"/></td>
-                            <td>{elem.item.title}</td>
-                            <td>{elem.item.price}</td>
-                            <td><input style={{textAlign:"center"}} type="number"
-                             value={elem.count}
-                             onChange={(e)=> changeProductCount(e.target.value, elem.item.id)}/></td>
-                            <td>{elem.subPrice}</td>
-                            <IconButton style={{color:"#ea9d9b", marginTop:"65px"}}
-                            onClick={()=>deleteCartProducts(elem.item.id)}><DeleteIcon/></IconButton> 
-                        </tr>
-                       
-                        ))}
-                    </tbody>
-                </table>
-                <div className="order-title">
-                <h4 className="total-price">Total: {calcTotalPrice(cart.product)} </h4>
-               <Link to="/order"><button className="btn-form">Order</button></Link>
+            
+            {cart.products ? (
+                <div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Title</th>
+                                <th>Price</th>
+                                <th>Count</th>
+                                <th>SubPrice</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {cart.products.map((elem) => (
+                                <tr key={elem.item.id}>
+                                    <td>
+                                        <img
+                                            style={{ width:"250px",height:"200px",border:"2px solid grey" }}
+                                            src={elem.item.image}
+                                            alt="Here should be image of product"
+                                        />
+                                    </td>
+                                    <td>{elem.item.title}</td>
+                                    <td>{elem.item.price} $</td>
+                                    <td>
+                                        <input
+                                            defaultValue={1}
+                                            type="number"
+                                            onChange={(e) =>
+                                                changeProductCount(
+                                                    e.target.value,
+                                                    elem.item.id
+                                                )
+                                            }
+                                        />
+                                    </td>
+                                    <td>{elem.subPrice} $</td>
+                                    <IconButton style={{color:"#9900ff", paddingTop:"100px"}}
+                                    onClick={()=>deleteCartProducts(elem.item.id)}><DeleteIcon/></IconButton> 
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                    <h4 className="total-price">Total: {calcTotalPrice(cart.products)} $</h4>
+             
+                    <button className="btn-form" onClick={()=>setModal({...modal,modal1 :true})}>Order</button>
                 </div>
-                 </div>  
-                 ): (<LinearProgress/>)}          
+            ) : (
+                <CircularProgress />
+            )}
+            <Modal
+            title={'Modal 1 Title'}
+            isOpened={modal.modal1}
+            onModalClose={()=>setModal({...modal,modal1 :false})}
+            totalPrice={totalPrice}
+            />
         </div>
-    )
-}
-
-export default Cart
+    );
+};
+export default Cart;

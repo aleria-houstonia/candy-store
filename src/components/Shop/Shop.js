@@ -1,3 +1,4 @@
+import { Link } from "@material-ui/core";
 import React from "react";
 import "./Shop.css";
 
@@ -11,6 +12,7 @@ const Shop = () => {
             </div>
             <br></br>
             <span></span>
+
             <div className="title__text">
                 <h2>
                     <strong> DELICIOUS GIFTS FOR ANY OCCASION</strong>
@@ -47,45 +49,66 @@ const Shop = () => {
             <div className="gifts">
                 <div className="gifts__card">
                     <div className="sidebar">
-                        <div className="sidebar__menu">
-                            <a href="#">
-                                <img src="https://cdn11.bigcommerce.com/s-7c08qbh/product_images/uploaded_images/fuhgettaboutiteditblock.jpg" />{" "}
+                        <div className="sidebar__menu1 menu-side">
+                            <a href="https://dibruno.com/gifts/gourmet-gift-boxes-and-cheese-plates/">
+                                <h4 className="sidebar__menu">
+                                    <strong>
+                                        Gourmet Gift Boxes and Cheese Plates
+                                    </strong>
+                                </h4>
                             </a>
                         </div>
-                        <div className="sidebar__menu">
-                            <a href="#">
-                                {" "}
-                                <img src="https://cdn3.bigcommerce.com/s-7c08qbh/templates/__custom/images/MomsDay_640x640.jpg?t=1531132412" />
+
+                        <div className="sidebar__menu2 menu-side">
+                            <a href="https://dibruno.com/gifts/mothers-day/">
+                                <h4 className="sidebar__menu">
+                                    <strong>Mother's Day</strong>
+                                </h4>
                             </a>
                         </div>
-                        <div className="sidebar__menu">
-                            <a href="#">
-                                <img src="https://cdn11.bigcommerce.com/s-7c08qbh/product_images/uploaded_images/free-ship640.jpg" />
+                        <div className="sidebar__menu3 menu-side">
+                            <a href="/products">
+                                <h4 className="sidebar__menu">
+                                    <strong>Free Shipping </strong>
+                                </h4>
                             </a>
                         </div>
-                        <div className="sidebar__menu">
-                            <a href="#">
-                                <img src="https://cdn3.bigcommerce.com/s-7c08qbh/templates/__custom/images/category-stinky-funky.jpg" />
+                        <div className="sidebar__menu4 menu-side">
+                            <a href="https://dibruno.com/gifts/virtual-pairings/">
+                                <h4 className="sidebar__menu">
+                                    <strong> Virtual Pairings</strong>
+                                </h4>
                             </a>
                         </div>
-                        <div className="sidebar__menu">
-                            <a href="#">
-                                <img src=" https://cdn7.bigcommerce.com/s-7c08qbh/product_images/uploaded_images/monthly-640x640.jpg" />
+                        <div className="sidebar__menu5 menu-side">
+                            <a
+                                a
+                                href="https://dibruno.com/gifts/monthly-clubs/"
+                            >
+                                <h4 className="sidebar__menu">
+                                    <strong> Monthly Clubs</strong>
+                                </h4>
                             </a>
                         </div>
-                        <div className="sidebar__menu">
-                            <a href="#">
-                                <img src="https://cdn3.bigcommerce.com/s-7c08qbh/templates/__custom/images/GiftCard_640x640.jpg?t=1531132412" />
+                        <div className="sidebar__menu6 menu-side">
+                            <a href="https://dibruno.com/corporate-gifting/">
+                                <h4 className="sidebar__menu">
+                                    <strong> Corporate Gifting</strong>
+                                </h4>
                             </a>
                         </div>
-                        <div className="sidebar__menu">
-                            <a href="#">
-                                <img src=" https://cdn3.bigcommerce.com/s-7c08qbh/templates/__custom/images/coginewsquare.jpg?t=1531132412" />
+                        <div className="sidebar__menu7 menu-side">
+                            <a href="https://dibruno.com/gifts/best-sellers/">
+                                <h4 className="sidebar__menu">
+                                    <strong> Best sellers</strong>
+                                </h4>
                             </a>
                         </div>
-                        <div className="sidebar__menu">
-                            <a href="#">
-                                <img src="https://cdn11.bigcommerce.com/s-7c08qbh/product_images/uploaded_images/cheesetools-640x640.jpg" />
+                        <div className="sidebar__menu8 menu-side">
+                            <a href="https://dibruno.com/gifts/gift-cards/">
+                                <h4 className="sidebar__menu">
+                                    <strong>Best Sellers </strong>{" "}
+                                </h4>
                             </a>
                         </div>
                     </div>

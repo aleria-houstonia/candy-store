@@ -10,13 +10,13 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import { red } from "@material-ui/core/colors";
 import FavoriteIcon from "@material-ui/icons/Favorite";
-import { useAuth } from "../../contexts/AuthContext";
 import DeleteIcon from "@material-ui/icons/Delete";
 import "./Products.css";
 import { productContext } from "../../contexts/ProductsContext";
 import { Link } from "react-router-dom";
 import { Box } from "@material-ui/core";
 import { Rating } from "@material-ui/lab";
+import { useAuth } from "../../contexts/AuthContext";
 import { adminUID } from "../../helpers/API";
 const useStyles = makeStyles((theme) => ({
     root: {
