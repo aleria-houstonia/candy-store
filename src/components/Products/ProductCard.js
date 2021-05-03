@@ -10,11 +10,13 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import { red } from "@material-ui/core/colors";
 import FavoriteIcon from "@material-ui/icons/Favorite";
-import ShareIcon from "@material-ui/icons/Share";
-import { Link } from "@material-ui/core";
+
 import DeleteIcon from "@material-ui/icons/Delete";
 import "./Products.css";
 import { productContext } from "../../contexts/ProductsContext";
+import { Link } from "react-router-dom";
+import { Box } from "@material-ui/core";
+import { Rating } from "@material-ui/lab";
 const useStyles = makeStyles((theme) => ({
     root: {
         width: 300,
@@ -22,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
     media: {
         height: 0,
         paddingTop: "56.25%", // 16:9
+        marginBottom: "15px",
     },
     expand: {
         transform: "rotate(0deg)",
@@ -39,114 +42,115 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ProductCard = (props) => {
+    const [value, setValue] = React.useState(Math.floor(Math.random() * 6));
+    const { deleteCard, getProducts } = useContext(productContext);
+    useEffect(() => {
+        getProducts(props.history);
+    }, []);
     const classes = useStyles();
 
-    const { deleteCard } = useContext(productContext);
-
     return (
-        <Card className={classes.root} id="productCard">
-            <CardMedia
-                className={classes.media}
-                id="card-products"
-                image={props.item.image}
-                x
-                title="Paella dish"
-            />
-            <Typography
-                style={{
-                    fontSize: "20px",
-                    textAlign: "center",
-                    color: "#333",
-                    textTransform: "uppercase",
-                    lineHeight: "1.2",
-                    fontFamily: "DIN1451Com-Engschrift sans-serif",
-                    minHeight: "30px",
-                    paddingTop: "20px",
-                    fontWeight: 600,
-                }}
-            >
-                {props.item.title}
-            </Typography>
-            <CardContent>
+        <div>
+            <Card className={classes.root} id="productCard">
+                <CardMedia
+                    className={classes.media}
+                    id="card-products"
+                    image={props.item.image}
+                    title="Paella dish"
+                />
                 <Typography
                     style={{
-                        fontSize: "19px",
-                        paddingTop: "10px",
+                        fontSize: "20px",
                         textAlign: "center",
                         color: "#333",
+                        textTransform: "uppercase",
+                        lineHeight: "1.2",
                         fontFamily: "DIN1451Com-Engschrift sans-serif",
-                        marginBottom: "30px",
+                        minHeight: "30px",
+                        height: "60px",
+                        fontWeight: 600,
                     }}
                 >
-                    {" "}
-                    {props.item.price} сом
+                    {props.item.title}
                 </Typography>
-                <Typography
-                    style={{
-                        fontSize: "14px",
-                        textAlign: "center",
-                        color: "#333",
-                        fontFamily: "DIN1451Com-Engschrift sans-serif",
-                    }}
-                    variant="body2"
-                    color="textSecondary"
-                    component="p"
+                <Box
+                    component="fieldset"
+                    mb={3}
+                    borderColor="transparent"
+                    style={{ textAlign: "center", marginTop: "5px" }}
                 >
-                    <Truncate
-                        style={{
-                            fontSize: "16px",
-                            padding: "20px 0",
-                            fontFamily:
-                                " proxima-nova Helvetica Arial Helvetica sans-serif",
-                        }}
-                        lines={2}
-                        ellipsis={
-                            <span>
-                                ... \
-                                <br />
-                                <Link to="/details">
-                                    <button
-                                        style={{
-                                            marginTop: "40px",
-                                            border: "2px solid #a85425",
-                                            color: "#a85425",
-                                            width: "100%",
-                                            fontSize: "16px",
-                                            padding: "20px 0",
-                                            textTransform: "uppercase",
-                                            fontWeight: "700",
-                                            borderRadius: "0",
-                                            fontFamily:
-                                                " proxima-nova Helvetica Arial Helvetica sans-serif",
-                                        }}
-                                    >
-                                        {" "}
-                                        CHOOSE OPTIONS{" "}
-                                    </button>
-                                </Link>
-                            </span>
-                        }
-                    >
-                        {props.item.description}
-                    </Truncate>
-                </Typography>
-            </CardContent>
-            <CardActions disableSpacing>
-                <IconButton aria-label="add to favorites">
-                    <FavoriteIcon />
-                </IconButton>
-                <IconButton>
-                    <DeleteIcon
-                        onClick={(e) => {
-                            deleteCard(props.item.id);
+                    <Rating
+                        size="large"
+                        name="simple-controlled"
+                        value={value}
+                        onChange={(event, newValue) => {
+                            setValue(newValue);
                         }}
                     />
-                </IconButton>
-                <IconButton>
-                    <ShoppingCartIcon />
-                </IconButton>
-            </CardActions>
-        </Card>
+                </Box>
+                <CardContent>
+                    <Typography
+                        style={{
+                            fontSize: "19px",
+                            textAlign: "center",
+                            color: "#333",
+                            fontFamily: "DIN1451Com-Engschrift sans-serif",
+                            height: "30px",
+                        }}
+                    >
+                        {" "}
+                        ${props.item.price}
+                    </Typography>
+                    <Typography
+                        style={{
+                            fontSize: "17px",
+                            textAlign: "center",
+                            color: "#333",
+                            fontFamily: "DIN1451Com-Engschrift sans-serif",
+                            height: "50px",
+                        }}
+                        variant="body2"
+                        color="textSecondary"
+                        component="p"
+                    >
+                        <Truncate
+                            style={{
+                                color: "gray",
+                                fontFamily:
+                                    " proxima-nova Helvetica Arial Helvetica sans-serif",
+                            }}
+                            lines={2}
+                            ellipsis={
+                                <span>
+                                    ...
+                                    <br />
+                                </span>
+                            }
+                        >
+                            {props.item.overview}
+                        </Truncate>
+                    </Typography>
+                    <Link to={`all/${props.item.id}`}>
+                        <button className="button-card">CHOOSE OPTIONS</button>
+                    </Link>
+                </CardContent>
+                <CardActions disableSpacing>
+                    <IconButton aria-label="add to favorites">
+                        <FavoriteIcon />
+                    </IconButton>
+                    <IconButton>
+                        <DeleteIcon
+                            onClick={(e) => {
+                                deleteCard(props.item.id, props.history);
+                            }}
+                        />
+                    </IconButton>
+                    <IconButton>
+                        <ShoppingCartIcon />
+                    </IconButton>
+                </CardActions>
+            </Card>
+        </div>
     );
 };
 

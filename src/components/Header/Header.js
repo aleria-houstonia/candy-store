@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import "./Header.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { productContext } from "../../contexts/ProductsContext";
 
 const Header = () => {
+    const history = useHistory();
+    const [div, setDiv] = useState(true);
+    const [searchValue, setSearchValue] = useState(getSearchValue());
+    const { getProducts, searchData, searchh } = useContext(productContext);
+    // const [searchValue, setSearchValue] = useState("");
+    const handleValue = (e) => {
+        const search = new URLSearchParams(history.location.search);
+        search.set("q", e.target.value);
+        history.push(`${history.location.pathname}?${search.toString()}`);
+        setSearchValue(e.target.value);
+        getProducts(history);
+        searchh(searchValue);
+    };
+
+    function getSearchValue() {
+        const search = new URLSearchParams(history.location.search);
+        return search.get("q");
+    }
     return (
         <>
             <div className="title">
@@ -26,7 +45,29 @@ const Header = () => {
                             <input
                                 className="input-search"
                                 placeholder="Search here ..."
+                                inputProps={{ "aria-label": "search" }}
+                                onChange={handleValue}
+                                value={searchValue}
                             />
+                            {div ? (
+                                <div className="search-result">
+                                    {searchData.map((item) => (
+                                        <Link
+                                            key={item.id}
+                                            to={`/all/${item.id}`}
+                                        >
+                                            <div
+                                                key={item.id}
+                                                onClick={() => setDiv(false)}
+                                            >
+                                                {item.title}
+                                            </div>
+                                        </Link>
+                                    ))}
+                                </div>
+                            ) : (
+                                " "
+                            )}
                         </form>
                     </div>
 
@@ -42,7 +83,7 @@ const Header = () => {
                                 <a href="#">Contact</a>
                             </li>
                             <li class="navbar__item">
-                                <a href="#">My account</a>
+                                <Link to="/dash">My account</Link>
                                 <b></b>
                             </li>
                             <li class="navbar__item">
@@ -67,19 +108,20 @@ const Header = () => {
                                 </button>
                             </div>
                             <div
-                                className="collapse navbar-collapse"
+                                className="collapse navbar-collapse "
                                 id="navbar-menu"
                             >
                                 <ul
-                                    className="nav navbar-nav"
+                                    className="nav navbar-nav "
                                     data-in="fadeInDown"
                                     data-out="fadeOutUp"
+                                    // style={{ display: "flex" }}
                                 >
                                     <li>
-                                        <a href="#">
+                                        <Link to="/products">
                                             {" "}
                                             GIFTS<span></span>{" "}
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
                                         <a href="#" data-hover="About   ">
@@ -120,7 +162,7 @@ const Header = () => {
                                     </li>
                                     <li className="" dropdown>
                                         <a
-                                            href=""
+                                            href="https://www.dibrunocatering.com"
                                             className="dropdown-toggle"
                                             data-toggle="dropdown"
                                             data-hover=" shortcodes"
@@ -131,7 +173,9 @@ const Header = () => {
                                         <ul className="dropdown-menu animated">
                                             <li>
                                                 {" "}
-                                                <a href="">Custom menu</a>{" "}
+                                                <a href="https://www.dibrunocatering.com/">
+                                                    Custom menu
+                                                </a>{" "}
                                                 <a href="">Custom menu</a>
                                                 <a href="">Custom menu</a>
                                             </li>
