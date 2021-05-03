@@ -1,42 +1,44 @@
+
+
 table{
     width: 100%;
     border-collapse: collapse;
+    
 }
 td{
     padding: 15px 0;
-    border-bottom: 1px solid silver;
+    border-bottom: 1px solid grey;
+    color: #9900ff;
+
+    font-size: 20px;
+   
 }
 .cart td{
     padding: 10px 50px;
 }
-/* th{
-    text-align: center;
-    padding: 5px;
-    color: #fff;
-    background: #ea9d9b;
-    font-weight: normal;
-
-} */
+th{
+    /* text-align: center; */
+    padding-top: 5px;
+    color:rgb(173, 36, 12);
+    font-size: 25px;
+}
 td input{
-    width: 40px;
+    width: 55px;
     height: 30px;
     padding: 5px;
+    font-size: 15px;
 }
 .delete{
     margin-bottom: 20px;
-}
-/* .order-title{ */
-    /* display:inline; */
    
-    /* flex-direction: column; */
-    /* justify-content: flex-start; */
-    
-/* }   */
+}
+
 .total-price{
      text-align:end;
     margin-right: 190px;
-    color: #ea9d9b;
-    font-size: 20px;
+    color: rgb(173, 36, 12);
+    font-size: 30px;
+    font-weight: bold;
       
 } 
 .btn-form{
@@ -44,15 +46,46 @@ td input{
     padding: 7px 35px;
     cursor: pointer;
     outline: none;
-    background:#ea9d9b;
+    background:rgb(173, 36, 12);
     color: rgb(192, 192, 192);
     font-size: 18px;
     border-radius: 10px;
     margin-top: 20px;
-    margin-left: 600px;
+    margin-left: 650px;
+    margin-bottom: 50px;
    
 }  
 .btn-form:hover{
     box-shadow: 0 15px 15px -10px rgba(0,0,0, .5);
-    background: rgb(173, 36, 12)
+    background: rgb(129, 24, 5);
 }
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200');
+
+.cart{
+    background-image: url('../assets/Image/pexels-sharon-mccutcheon.jpg');
+    background-size:cover;
+        -webkit-animation: slidein 100s;
+        animation: slidein 100s;
+
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+
+        -webkit-animation-iteration-count: infinite;
+        animation-iteration-count: infinite;
+
+        -webkit-animation-direction: alternate;
+        animation-direction: alternate;              
+}
+
+@-webkit-keyframes slidein {
+from {background-position: top; background-size:3000px; }
+to {background-position: -100px 0px;background-size:2750px;}
+}
+
+@keyframes slidein {
+from {background-position: top;background-size:3000px; }
+to {background-position: -100px 0px;background-size:2750px;}
+
+}
+
+

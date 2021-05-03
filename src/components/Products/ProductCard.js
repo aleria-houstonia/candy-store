@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
 const ProductCard = (props) => {
     const classes = useStyles();
 
-    const { deleteCard } = useContext(productContext);
+    const { deleteCard, addProductToCart } = useContext(productContext);
 
     return (
         <Card className={classes.root} id="productCard">
@@ -79,7 +79,7 @@ const ProductCard = (props) => {
                     }}
                 >
                     {" "}
-                    {props.item.price} сом
+                    {props.item.price} $
                 </Typography>
                 <Typography
                     style={{
@@ -142,7 +142,7 @@ const ProductCard = (props) => {
                         }}
                     />
                 </IconButton>
-                <IconButton>
+                 <IconButton onClick={()=>{ addProductToCart(props.item)}}> 
                     <ShoppingCartIcon />
                 </IconButton>
             </CardActions>

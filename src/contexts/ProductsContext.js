@@ -26,7 +26,7 @@ const reducer = (state = INIT_STATE, action) => {
             return state;
     }
 };
-const ProductsContextProvider = ({ children }) => {
+ const ProductsContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
     const postProduct = (products) => {
@@ -54,9 +54,10 @@ const ProductsContextProvider = ({ children }) => {
     
   function addProductToCart(product){
     let cart =JSON.parse(localStorage.getItem('cart'))
+    console.log(cart)
     if(!cart){
       cart ={
-        product: [],
+        products: [],
         totalPrice: 0
       }
     }
@@ -68,18 +69,19 @@ const ProductsContextProvider = ({ children }) => {
 
     let filteredCart =cart.products.filter(elem => elem.item.id===product.id)
     if(filteredCart.length>0){
-      cart.product=cart.product.filter(elem => elem.item.id!==product.id)
+      cart.product=cart.products.filter(elem => elem.item.id!==product.id)
     }else{
-      cart.product.push(newProduct)
+        console.log(cart.products)
+      cart.products.push(newProduct)
     }
     
     newProduct.subPrice=calcSubPrice(newProduct)
-    cart.totalPrice=calcTotalPrice(cart.product)
+    cart.totalPrice=calcTotalPrice(cart.products)
     localStorage.setItem("cart", JSON.stringify(cart))
 
     dispatch({
       type: "CHANGE_CART_COUNT",
-      payload: cart.product.length
+      payload: cart.products.length
     })
   }
  function getCart(){
@@ -97,14 +99,14 @@ const ProductsContextProvider = ({ children }) => {
  }
  function changeProductCount(count, id){
   let cart =JSON.parse(localStorage.getItem('cart'))
-  cart.product= cart.product.map(elem=>{
+  cart.products= cart.products.map(elem=>{
     if(elem.item.id===id){
       elem.count = count
       elem.subPrice =calcSubPrice(elem)
     }
     return elem
   })
-  cart.totalPrice=calcTotalPrice(cart.product)
+  cart.totalPrice=calcTotalPrice(cart.products)
   localStorage.setItem("cart", JSON.stringify(cart))
   getCart()
  }
@@ -112,23 +114,23 @@ const ProductsContextProvider = ({ children }) => {
   let cart =JSON.parse(localStorage.getItem('cart'))
   if(!cart){
     cart ={
-      product: [],
+      products: [],
       totalPrice: 0
     }
   }
-  let newCart= cart.product.filter(elem=>elem.item.id===id)
+  let newCart= cart.products.filter(elem=>elem.item.id===id)
   return newCart.length>0 ? true : false
  }
    function deleteCartProducts(id){  
   let toDelete=JSON.parse( localStorage.getItem('cart')) 
-  toDelete.product =toDelete.product.filter(elem=>elem.item.id!==id)
+  toDelete.products =toDelete.products.filter(elem=>elem.item.id!==id)
     localStorage.setItem("cart",JSON.stringify(toDelete))
     
     getCart()
 
     dispatch({
       type: "CHANGE_CART_COUNT",
-      payload: toDelete.product.length
+      payload: toDelete.products.length
     })
      
    }
@@ -153,8 +155,8 @@ const ProductsContextProvider = ({ children }) => {
                 getCart,
                 changeProductCount,
                 checkProductInCart,
-                deleteCartProducts
-                deleteCard,
+                deleteCartProducts,
+                deleteCard
 
             }}
         >

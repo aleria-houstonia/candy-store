@@ -12,8 +12,8 @@ import AddProduct from "./components/AddProduct/AddProduct";
 import Shop from "./components/Shop/Shop";
 import Locations from "./components/Locations/Locations";
 import PaymentForm from "./components/Payment/Payment";
-import OrderSummary from "./components/OrderSummary/OrderSummary";
 import ProductsList from "./components/Products/ProductsList";
+import Events from "./components/Events/Events";
 
 import AllDescription from "./components/AllDescription/AllDescription";
 
@@ -33,26 +33,16 @@ const Routes = () => {
                         <Route exact path="/cart" component={Cart} />
                         <Route exact path="/add" component={AddProduct} />
                         <Route exact path="/location" component={Locations} />
-<<<<<<< HEAD
                         <Route exact path="/all" component={AllDescription} />
-                        <Route exact path="/payment" component={PaymentForm} />
-                        <Route exact path="/order" component={OrderSummary} />
-=======
-
-                        <Route exact path="/all" component={AllDescription} />
-
                         <Route exact path="/payment" component={PaymentForm}/>
-                        <Route exact path="/order" component={OrderSummary}/>
->>>>>>> 0513588cbffd8e9aff36dc229cb6bbfc020d16f5
+                        <Route exact path="/events" component={Events}/>
+                                     
+
                         <Route
                             exact
                             path="/products"
                             component={ProductsList}
                         />
-<<<<<<< HEAD
-=======
-
->>>>>>> 0513588cbffd8e9aff36dc229cb6bbfc020d16f5
                     </Switch>
                     <Footer />
                 </BrowserRouter>
