@@ -9,6 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import "./Products.css";
 import { Menu, MenuItem, Button } from "@material-ui/core";
+import Pagination from "@material-ui/lab/Pagination";
 const useStyles = makeStyles((theme) => ({
     root: {
         width: "100%",
@@ -29,7 +30,22 @@ const ProductsList = ({ history }) => {
         setAnchorEl(null);
     };
     const classes = useStyles();
-    const { productData, getProducts } = useContext(productContext);
+    const { productData, getProducts, paginationPages } = useContext(
+        productContext
+    );
+    const [page, setPage] = useState(getPage());
+
+    function getPage() {
+        const search = new URLSearchParams(history.location.search);
+        return search.get("_page");
+    }
+    const handlePage = (e, page) => {
+        const search = new URLSearchParams(history.location.search);
+        search.set("_page", page);
+        history.push(`${history.location.pathname}?${search.toString()}`);
+        getProducts(history);
+    };
+    console.log(paginationPages);
     const [min, setMin] = useState(0);
     const [max, setMax] = useState(0);
     const [title, setTitle] = useState("Featured items");
@@ -48,7 +64,7 @@ const ProductsList = ({ history }) => {
             getProducts(history);
             return;
         }
-        // const search = new URLSearchParams(history.location.search);
+        // const search = new URLSearchnpParams(history.location.search);
         history.push(
             `${history.location.pathname}?price_gte=${min}&price_lte=${max}`
         );
@@ -223,6 +239,20 @@ const ProductsList = ({ history }) => {
                 {productData.map((item) => (
                     <ProductCard key={item.id} item={item} history={history} />
                 ))}
+            </div>
+            <div
+                style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    margin: " 30px 0",
+                }}
+            >
+                <Pagination
+                    onChange={handlePage}
+                    count={paginationPages}
+                    color="secondary"
+                    defaultPage={+page}
+                />
             </div>
         </div>
     );

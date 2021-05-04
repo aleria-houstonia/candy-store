@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { Button } from "@material-ui/core";
 import "./AllDescription.css";
 import { productContext } from "../../contexts/ProductsContext";
@@ -7,6 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import { useAuth } from "../../contexts/AuthContext";
 import { adminUID } from "../../helpers/API";
+import Drift from "drift-zoom";
 const AllDescription = (props) => {
     const [editStatus, setEditStatus] = useState(false);
     const [editedTopic, setEditedTopic] = useState({});
@@ -29,12 +30,39 @@ const AllDescription = (props) => {
     };
     useEffect(() => {
         getProductDetails(props.match.params.id);
+        // let Drift;
+        // if (typeof window !== "undefined") {
+        //     Drift = require("drift-zoom").default;
+        // }
+        // new Drift(imgRef.current, {
+        //     paneContainer: detailRef.current,
+        // inlineContainer: inlineContainerRef.current,
+        // });x
     }, [editStatus]);
     const handleSave = () => {
         setEditStatus(false);
         saveTopic(props.match.params.id, editedTopic);
     };
+    // var demoTrigger = document.querySelector(".demo-trigger");
+    // var paneContainer = document.querySelector(".detail");
+    const imgRef = useRef();
+    // const imgRef = document.querySelector(".demo-trigger");
+    const detailRef = useRef();
+    // new Drift(imgRef, {
+    //     paneContainer: detailRef,
+    //     inlinePane: false,
+    // });
 
+    // useEffect(() => {
+    //     let Drift;
+    //     if (typeof window !== "undefined") {
+    //         Drift = require("drift-zoom").default;
+    //     }
+    //     new Drift(imgRef.current, {
+    //         paneContainer: detailRef.current,
+    //         // inlineContainer: inlineContainerRef.current,
+    //     });
+    // }, []);
     return (
         <div>
             {productDetails ? (
@@ -77,9 +105,18 @@ const AllDescription = (props) => {
                     ) : (
                         <div className="table__cart">
                             <div className="table__cart_img">
-                                <img src={productDetails.image} />
+                                <img
+                                    ref={imgRef}
+                                    src={productDetails.image}
+                                    className="demo-trigger"
+                                    data-zoom={productDetails.image}
+                                    // srcZoom={productDetails.image}
+                                />
                             </div>
-                            <div className="table__cart_desc">
+                            <div
+                                className="table__cart_desc   detail"
+                                ref={detailRef}
+                            >
                                 <Box
                                     component="fieldset"
                                     mb={3}

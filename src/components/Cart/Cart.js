@@ -30,7 +30,7 @@ const Cart = () => {
         }
     }, [cart]);
     return (
-        <div className="cart">
+        <div className="cart" style={{ height: "100vh" }}>
             {cart.products ? (
                 <div>
                     <table>
@@ -98,7 +98,8 @@ const Cart = () => {
                 </div>
             ) : (
                 // <CircularProgress />
-                <h1>Корзина пуста</h1>
+
+                <h1 className="cart-noprod">Корзина пуста</h1>
             )}
             <Modal
                 title={"Modal 1 Title"}

@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap");
-
+a {
+    text-decoration: none;
+}
 .title_string {
     background: #ea9d9b;
     height: 70px;

@@ -2,8 +2,10 @@ import React, { useContext, useState } from "react";
 import "./Header.css";
 import { Link, useHistory } from "react-router-dom";
 import { productContext } from "../../contexts/ProductsContext";
-
+import { useAuth } from "../../contexts/AuthContext";
+import { adminUID } from "../../helpers/API";
 const Header = () => {
+    const { currentUser } = useAuth();
     const history = useHistory();
     const [div, setDiv] = useState(true);
     const [searchValue, setSearchValue] = useState(getSearchValue());
@@ -49,33 +51,16 @@ const Header = () => {
                                 onChange={handleValue}
                                 value={searchValue}
                             />
-                            {div ? (
-                                <div className="search-result">
-                                    {searchData.map((item) => (
-                                        <Link
-                                            key={item.id}
-                                            to={`/all/${item.id}`}
-                                        >
-                                            <div
-                                                key={item.id}
-                                                onClick={() => setDiv(false)}
-                                            >
-                                                {item.title}
-                                            </div>
-                                        </Link>
-                                    ))}
-                                </div>
-                            ) : (
-                                " "
-                            )}
                         </form>
                     </div>
 
                     <div className="navbar__menu_item">
                         <ul className="navbar__menu menu__box">
-                            <li class="navbar__item">
-                                <a href="#">Blog</a>
-                            </li>
+                            {currentUser && currentUser.uid === adminUID ? (
+                                <li class="navbar__item">
+                                    <Link to="/add">Add</Link>
+                                </li>
+                            ) : null}
                             <li class="navbar__item">
                                 <Link to="/events">Events</Link>
                             </li>

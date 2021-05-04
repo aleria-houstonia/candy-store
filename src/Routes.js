@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Cart from "./components/Cart/Cart";
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
@@ -21,7 +21,7 @@ import ForgotPassword from "./components/AuthThings/ForgotPassword";
 import UpdateProfile from "./components/AuthThings/UpdateProfile";
 import PrivateRoute from "./PrivateRoute";
 import { useAuth } from "../src/contexts/AuthContext";
-import { publicRoutes, userRoutes } from "./Routesagain";
+// import { publicRoutes, userRoutes } from "./Routesagain";
 import AdminRoutes from "./AdminRoutes";
 import Events from "./components/Events/Events";
 
@@ -32,31 +32,32 @@ const Routes = () => {
         <ProductsContextProvider>
             <BrowserRouter>
                 <Header />
-                <PrivateRoute
-                    path="/update-profile"
-                    component={UpdateProfile}
-                />
-                <PrivateRoute exact path="/dash" component={Dashboard} />
-                <PrivateRoute path="/cart" component={Cart} />
-                <PrivateRoute path="/payment" component={PaymentForm} />
-                {/* <PrivateRoute path="/order" component={OrderSummary} /> */}
-                <AdminRoutes path="/add" component={AddProduct} />
-                <Route exact path="/location" component={Locations} />
-                <Route exact path="/products" component={ProductsList} />
-                <Route exact path="/all/:id" component={AllDescription} />
-                <Route exact path="/login" component={Login} />
-                <Route exact path="/signup" component={Signup} />
-                <Route exact path="/" component={Home} />
-                <Route path="/forgot-password" component={ForgotPassword} />
-                <Route path="/shop" component={Shop} />
-                {/* <Route exact path="/dash" component={Dashboard} /> */}
-                <PrivateRoute
-                    path="/update-profile"
-                    component={UpdateProfile}
-                />
-                <Route exact path="/events" component={Events} />
-
-                {/* <Footer />  */}
+                <Switch>
+                    <PrivateRoute
+                        path="/update-profile"
+                        component={UpdateProfile}
+                    />
+                    <PrivateRoute exact path="/dash" component={Dashboard} />
+                    <PrivateRoute path="/cart" component={Cart} />
+                    <PrivateRoute path="/payment" component={PaymentForm} />
+                    {/* <PrivateRoute path="/order" component={OrderSummary} /> */}
+                    <AdminRoutes path="/add" component={AddProduct} />
+                    <Route exact path="/location" component={Locations} />
+                    <Route exact path="/products" component={ProductsList} />
+                    <Route exact path="/all/:id" component={AllDescription} />
+                    <Route exact path="/login" component={Login} />
+                    <Route exact path="/signup" component={Signup} />
+                    <Route exact path="/" component={Home} />
+                    <Route path="/forgot-password" component={ForgotPassword} />
+                    <Route path="/shop" component={Shop} />
+                    {/* <Route exact path="/dash" component={Dashboard} /> */}
+                    <PrivateRoute
+                        path="/update-profile"
+                        component={UpdateProfile}
+                    />
+                    <Route exact path="/events" component={Events} />
+                </Switch>
+                {/* <Footer /> */}
             </BrowserRouter>
         </ProductsContextProvider>
     );

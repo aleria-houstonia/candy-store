@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useReducer } from "react";
+import React, { useReducer, useState } from "react";
 // import JSON_API from "../helpers/constants";
 import {
     calcSubPrice,
@@ -12,7 +12,9 @@ export const productContext = React.createContext();
 const INIT_STATE = {
     productData: [],
     filterData: [],
+    paginationPages: 1,
     productDetails: null,
+
     searchData: [],
     cart: {},
     cartLength: getCountProductsInCart(),
@@ -23,7 +25,13 @@ const reducer = (state = INIT_STATE, action) => {
         case "SEARCH":
             return { ...state, searchData: action.payload };
         case "GET_PRODUCTS":
-            return { ...state, productData: action.payload.data };
+            return {
+                ...state,
+                productData: action.payload.data,
+                paginationPages: Math.ceil(
+                    action.payload.headers["x-total-count"] / 6
+                ),
+            };
         case "GET_PRODUCT_DETAILS":
             return { ...state, productDetails: action.payload };
         case "GET_CART":
@@ -41,9 +49,10 @@ const ProductsContextProvider = ({ children }) => {
         axios.post("http://localhost:8000/products", products);
         getProducts();
     };
+
     async function getProducts(history) {
         const search = new URLSearchParams(history.location.search);
-        // search.set("_limit", 4);
+        search.set("_limit", 6);
         history.push(`${history.location.pathname}?${search.toString()}`);
         let res = await axios.get(
             `http://localhost:8000/products${window.location.search}`
@@ -167,6 +176,7 @@ const ProductsContextProvider = ({ children }) => {
     return (
         <productContext.Provider
             value={{
+                paginationPages: state.paginationPages,
                 productData: state.productData,
                 cart: state.cart,
                 cartLength: state.cartLength,
