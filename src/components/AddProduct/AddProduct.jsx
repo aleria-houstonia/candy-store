@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { Container } from "react-bootstrap";
 import { productContext } from "../../contexts/ProductsContext";
 import { Button } from "@material-ui/core";
 import "./AddProduct.css";
@@ -7,6 +8,7 @@ const AddProduct = () => {
     const [product, setProduct] = useState({
         title: "",
         price: "",
+        category: "",
         titleOverview: "",
         overview: "",
         description: "",
@@ -24,6 +26,7 @@ const AddProduct = () => {
         setProduct({
             title: "",
             price: "",
+            category: "",
             titleOverview: "",
             overview: "",
             description: "",

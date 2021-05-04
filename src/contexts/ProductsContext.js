@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useReducer } from "react";
+import React, { useReducer, useState } from "react";
 // import JSON_API from "../helpers/constants";
 import {
     calcSubPrice,
@@ -11,15 +11,27 @@ export const productContext = React.createContext();
 
 const INIT_STATE = {
     productData: [],
+    filterData: [],
+    paginationPages: 1,
     productDetails: null,
+
+    searchData: [],
     cart: {},
     cartLength: getCountProductsInCart(),
 };
 
 const reducer = (state = INIT_STATE, action) => {
     switch (action.type) {
+        case "SEARCH":
+            return { ...state, searchData: action.payload };
         case "GET_PRODUCTS":
-            return { ...state, productData: action.payload };
+            return {
+                ...state,
+                productData: action.payload.data,
+                paginationPages: Math.ceil(
+                    action.payload.headers["x-total-count"] / 6
+                ),
+            };
         case "GET_PRODUCT_DETAILS":
             return { ...state, productDetails: action.payload };
         case "GET_CART":
@@ -38,14 +50,19 @@ const ProductsContextProvider = ({ children }) => {
         getProducts();
     };
 
-    async function getProducts() {
-        let { data } = await axios("http://localhost:8000/products");
+    async function getProducts(history) {
+        const search = new URLSearchParams(history.location.search);
+        search.set("_limit", 6);
+        history.push(`${history.location.pathname}?${search.toString()}`);
+        let res = await axios.get(
+            `http://localhost:8000/products${window.location.search}`
+        );
         dispatch({
             type: "GET_PRODUCTS",
-            payload: data,
+            payload: res,
         });
-        // console.log(data);
     }
+
     async function getProductDetails(id) {
         let { data } = await axios(`http://localhost:8000/products/${id}`);
         console.log(data);
@@ -57,7 +74,6 @@ const ProductsContextProvider = ({ children }) => {
 
     function addProductToCart(product) {
         let cart = JSON.parse(localStorage.getItem("cart"));
-        console.log(cart);
         if (!cart) {
             cart = {
                 products: [],
@@ -74,11 +90,10 @@ const ProductsContextProvider = ({ children }) => {
             (elem) => elem.item.id === product.id
         );
         if (filteredCart.length > 0) {
-            cart.product = cart.products.filter(
+            cart.products = cart.products.filter(
                 (elem) => elem.item.id !== product.id
             );
         } else {
-            console.log(cart.products);
             cart.products.push(newProduct);
         }
 
@@ -104,16 +119,20 @@ const ProductsContextProvider = ({ children }) => {
             payload: cart,
         });
     }
+    async function saveTopic(id, newTopic) {
+        axios.patch(`http://localhost:8000/products/${id}`, newTopic);
+        getProductDetails(id);
+    }
     function changeProductCount(count, id) {
         let cart = JSON.parse(localStorage.getItem("cart"));
-        cart.products = cart.products.map((elem) => {
+        cart.product = cart.products.map((elem) => {
             if (elem.item.id === id) {
                 elem.count = count;
                 elem.subPrice = calcSubPrice(elem);
             }
             return elem;
         });
-        cart.totalPrice = calcTotalPrice(cart.products);
+        cart.totalPrice = calcTotalPrice(cart.product);
         localStorage.setItem("cart", JSON.stringify(cart));
         getCart();
     }
@@ -121,7 +140,7 @@ const ProductsContextProvider = ({ children }) => {
         let cart = JSON.parse(localStorage.getItem("cart"));
         if (!cart) {
             cart = {
-                products: [],
+                product: [],
                 totalPrice: 0,
             };
         }
@@ -143,19 +162,30 @@ const ProductsContextProvider = ({ children }) => {
         });
     }
 
-    async function deleteCard(id) {
+    async function deleteCard(id, history) {
         await axios.delete(`http://localhost:8000/products/${id}`);
-        getProducts();
+        getProducts(history);
+    }
+    async function searchh(value) {
+        let { data } = await axios(`http://localhost:8000/products?q=${value}`);
+        dispatch({
+            type: "SEARCH",
+            payload: data,
+        });
     }
     return (
         <productContext.Provider
             value={{
+                paginationPages: state.paginationPages,
                 productData: state.productData,
-                productDetails: state.productDetails,
                 cart: state.cart,
                 cartLength: state.cartLength,
-                postProduct,
+                productDetails: state.productDetails,
+                searchData: state.searchData,
+                saveTopic,
+                searchh,
                 getProductDetails,
+                postProduct,
                 getProducts,
                 addProductToCart,
                 getCart,

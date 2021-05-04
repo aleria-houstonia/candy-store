@@ -4,6 +4,7 @@
     max-width: 100%;
     bottom: 0;
     display: flex;
+    /* flex-wrap: wrap; */
     justify-content: space-around;
     font-family: "Fjalla One", sans-serif;
 }

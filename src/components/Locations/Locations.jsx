@@ -14,12 +14,12 @@ import "./Location.css";
 
 const useStyles = makeStyles({
     root: {
-        width: 450,
-        // height: 300,
+        width: 400,
+        // height: 500,
     },
     media: {
-        height: 240,
-        width: 450,
+        height: 210,
+        width: 400,
     },
 });
 const Locations = () => {
@@ -140,15 +140,6 @@ const Locations = () => {
                             </Typography>
                         </CardContent>
                     </CardActionArea>
-                    <CardActions
-                        style={{
-                            display: "flex",
-                            justifyContent: "center",
-                            borderTop: "1px solid gray",
-                        }}
-                    >
-                        <Button style={{ fontSize: "20px" }}>More Info</Button>
-                    </CardActions>
                 </Card>
                 <Card
                     className={classes.root}
@@ -232,15 +223,6 @@ const Locations = () => {
                             </Typography>
                         </CardContent>
                     </CardActionArea>
-                    <CardActions
-                        style={{
-                            display: "flex",
-                            justifyContent: "center",
-                            borderTop: "1px solid gray",
-                        }}
-                    >
-                        <Button style={{ fontSize: "20px" }}>More Info</Button>
-                    </CardActions>
                 </Card>
                 <Card
                     className={classes.root}
@@ -338,15 +320,6 @@ const Locations = () => {
                             </Typography>
                         </CardContent>
                     </CardActionArea>
-                    <CardActions
-                        style={{
-                            display: "flex",
-                            justifyContent: "center",
-                            borderTop: "1px solid gray",
-                        }}
-                    >
-                        <Button style={{ fontSize: "20px" }}>More Info</Button>
-                    </CardActions>
                 </Card>
                 <Card
                     className={classes.root}
@@ -445,15 +418,6 @@ const Locations = () => {
                             </Typography>
                         </CardContent>
                     </CardActionArea>
-                    <CardActions
-                        style={{
-                            display: "flex",
-                            justifyContent: "center",
-                            borderTop: "1px solid gray",
-                        }}
-                    >
-                        <Button style={{ fontSize: "20px" }}>More Info</Button>
-                    </CardActions>
                 </Card>
                 <Card
                     className={classes.root}
@@ -550,15 +514,6 @@ const Locations = () => {
                             </Typography>
                         </CardContent>
                     </CardActionArea>
-                    <CardActions
-                        style={{
-                            display: "flex",
-                            justifyContent: "center",
-                            borderTop: "1px solid gray",
-                        }}
-                    >
-                        <Button style={{ fontSize: "20px" }}>More Info</Button>
-                    </CardActions>
                 </Card>
                 <Card
                     className={classes.root}
@@ -657,15 +612,6 @@ const Locations = () => {
                             </Typography>
                         </CardContent>
                     </CardActionArea>
-                    <CardActions
-                        style={{
-                            display: "flex",
-                            justifyContent: "center",
-                            borderTop: "1px solid gray",
-                        }}
-                    >
-                        <Button style={{ fontSize: "20px" }}>More Info</Button>
-                    </CardActions>
                 </Card>
             </div>
         </div>

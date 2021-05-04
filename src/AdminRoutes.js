@@ -1,20 +1,21 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import { useAuth } from "../src/contexts/AuthContext";
-
-export default function PrivateRoute({ component: Component, ...rest }) {
+import { adminUID } from "./helpers/API";
+const AdminPrivateRoute = ({ component: Component, ...rest }) => {
     const { currentUser } = useAuth();
-
     return (
         <Route
             {...rest}
             render={(props) => {
-                return currentUser ? (
+                return currentUser && currentUser.uid === adminUID ? (
                     <Component {...props} />
                 ) : (
-                    <Redirect to="/login" />
+                    <Redirect to="/" />
                 );
             }}
         ></Route>
     );
-}
+};
+
+export default AdminPrivateRoute;
