@@ -1,5 +1,6 @@
-
-.main_block{
+.main_block {
     display: flex;
     justify-content: space-evenly;
+    background-image: url("https://images.pexels.com/photos/5945565/pexels-photo-5945565.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500");
+    background-size: cover;
 }

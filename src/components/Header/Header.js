@@ -32,20 +32,20 @@ const Header = () => {
 
                     <div className="navbar__menu_item">
                         <ul className="navbar__menu menu__box">
-                            <li class="navbar__item">
+                            <li className="navbar__item">
                                 <a href="#">Blog</a>
                             </li>
-                            <li class="navbar__item">
+                            <li className="navbar__item">
                                 <Link to="/events">Events</Link>
                             </li>
-                            <li class="navbar__item">
+                            <li className="navbar__item">
                                 <a href="#">Contact</a>
                             </li>
-                            <li class="navbar__item">
+                            <li className="navbar__item">
                                 <a href="#">My account</a>
                                 <b></b>
                             </li>
-                            <li class="navbar__item">
+                            <li className="navbar__item">
                                 <Link to="/cart">Cart</Link>
                             </li>
                         </ul>
