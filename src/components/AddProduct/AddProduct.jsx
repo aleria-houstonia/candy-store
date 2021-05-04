@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { Container } from "react-bootstrap";
 import { productContext } from "../../contexts/ProductsContext";
 import "./AddProduct.css";
 const AddProduct = () => {
@@ -6,6 +7,7 @@ const AddProduct = () => {
     const [product, setProduct] = useState({
         title: "",
         price: "",
+        category: "",
         titleOverview: "",
         overview: "",
         description: "",
@@ -23,6 +25,7 @@ const AddProduct = () => {
         setProduct({
             title: "",
             price: "",
+            category: "",
             titleOverview: "",
             overview: "",
             description: "",
@@ -30,51 +33,72 @@ const AddProduct = () => {
         });
     };
     return (
-        <div className="adding-container">
-            <input
-                onChange={handleValues}
-                value={product.title}
-                type="text"
-                placeholder="title"
-                name="title"
-            />
-            <input
-                onChange={handleValues}
-                value={product.price}
-                type="text"
-                placeholder="price"
-                name="price"
-            />
-            <input
-                onChange={handleValues}
-                value={product.titleOverview}
-                type="text"
-                placeholder="title-overview"
-                name="titleOverview"
-            />
-            <textarea
-                type="text"
-                placeholder="quick overview:"
-                name="overview"
-                onChange={handleValues}
-                value={product.overview}
-            ></textarea>
-            <textarea
-                type="text"
-                placeholder="description"
-                name="description"
-                onChange={handleValues}
-                value={product.description}
-            ></textarea>
-            <input
-                onChange={handleValues}
-                value={product.image}
-                type="text"
-                placeholder="image"
-                name="image"
-            />
-            <button onClick={handleClick}>Add</button>
-        </div>
+        <Container
+            className="d-flex flex-column align-items-center justify-content-center"
+            style={{ minHeight: "100vh" }}
+        >
+            <div className="adding-container">
+                <input
+                    className="add-input"
+                    onChange={handleValues}
+                    value={product.title}
+                    type="text"
+                    placeholder="title"
+                    name="title"
+                />
+                <input
+                    className="add-input"
+                    onChange={handleValues}
+                    value={product.price}
+                    type="text"
+                    placeholder="price"
+                    name="price"
+                />
+                <input
+                    className="add-input"
+                    onChange={handleValues}
+                    value={product.category}
+                    type="text"
+                    placeholder="category"
+                    name="category"
+                />
+                <input
+                    className="add-input"
+                    onChange={handleValues}
+                    value={product.titleOverview}
+                    type="text"
+                    placeholder="title-overview"
+                    name="titleOverview"
+                />
+                <textarea
+                    className="add-input"
+                    type="text"
+                    placeholder="quick overview:"
+                    name="overview"
+                    onChange={handleValues}
+                    value={product.overview}
+                ></textarea>
+                <textarea
+                    className="add-input"
+                    type="text"
+                    placeholder="description"
+                    name="description"
+                    onChange={handleValues}
+                    value={product.description}
+                ></textarea>
+                <input
+                    className="add-input"
+                    onChange={handleValues}
+                    value={product.image}
+                    type="text"
+                    placeholder="image"
+                    name="image"
+                />
+            </div>
+            <button className="button-add" onClick={handleClick}>
+                Add
+            </button>
+        </Container>
     );
 };
 

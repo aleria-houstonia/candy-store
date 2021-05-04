@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap");
-
+a {
+    text-decoration: none;
+}
 .title_string {
     background: #ea9d9b;
     height: 70px;
@@ -32,13 +34,13 @@
 }
 .navbar__menu_logo {
     display: flex;
-    flex-direction: row;
+    /* flex-direction: row; */
     flex-wrap: wrap;
     max-width: 1280px;
     justify-content: start;
 }
 .logo {
-    width: 400px;
+    width: 300px;
 }
 .input-search {
     width: 300px;
@@ -79,6 +81,7 @@
 
 .navbar {
     display: flex;
+
     justify-content: center;
     align-items: center;
 }
@@ -90,6 +93,11 @@ nav.navbar.bootsnav {
 
 nav.navbar.bootsnav ul.nav > {
     margin-right: 20px;
+    display: flex;
+}
+nav.navbar.bootsnav .nav {
+    display: flex;
+    flex-direction: row;
 }
 
 nav.navbar.bootsnav ul.nav > li > a {
@@ -183,3 +191,28 @@ nav.navbar.bootsnav li.dropdown ul.dropdown-menu.megamenu-content .title {
         left: 0%;
     }
 }
+.search-result {
+    /* height: 50px; */
+    width: 20%;
+    position: absolute;
+    background-color: #fff;
+    color: black;
+    z-index: 10;
+}
+
+.search-result div {
+    border-bottom: 1px solid black;
+    margin-bottom: 5px;
+}
+.search-result a {
+    text-decoration: none;
+    color: black;
+}
+/* .nav ul {
+    display: flex;
+} */
+/* 
+.navbar__third ul {
+    max-height: 50px;
+    display: flex !important;
+} */

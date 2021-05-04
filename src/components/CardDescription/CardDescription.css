@@ -7,20 +7,19 @@
     line-height: 51px;
     color: #303232;
     text-shadow: none;
-    margin: 0;
     text-align: center;
 }
 
 .card_p {
     font-size: 20px;
-    margin-top: 25px;
+    margin-top: 20px;
     text-align: center;
     color: rgb(90, 90, 90);
     line-height: 35px;
 }
 
 .card__item_text {
-    padding: 70px;
+    padding: 90px;
 }
 .card-btn {
     display: flex;
@@ -29,9 +28,16 @@
 }
 .card__item_img {
     clip-path: polygon(0 0, 100% 0, 75% 100%, 0 100%);
+    max-width: 50%;
+    background-size: contain;
 }
+/* .card__item_img img {
+    
+} */
 .card__item_img_second {
     clip-path: polygon(75px 0px, 100% 0, 100% 100%, 0 100%);
+    max-width: 50%;
+    background-size: contain;
 }
 
 .card__description {
