@@ -31,15 +31,20 @@ const CommentsList = () => {
     return (
         <ul>
             {commentData.map((item, index) => (
-                <div>
+                <div className="comment__item">
                     <Comment>
                         <Comment.Avatar src="https://react.semantic-ui.com/images/avatar/small/matt.jpg" />
                         <Comment.Content>
-                            <Comment.Author as="a" style={{ color: "black" }}>
+                            <Comment.Author
+                                as="a"
+                                style={{ color: "black", fontSize: "20px" }}
+                            >
                                 {item.author}
                             </Comment.Author>
                             <Comment.Metadata>
-                                <div>{item.now}</div>
+                                <div style={{ fontSize: "20px" }}>
+                                    {item.now}
+                                </div>
                             </Comment.Metadata>
                             <Comment.Text>{item.text}</Comment.Text>
                             <Comment.Actions>
@@ -52,6 +57,12 @@ const CommentsList = () => {
                                         <div style={{ display: "flex" }}>
                                             {" "}
                                             <button
+                                                style={{
+                                                    fontSize: "20px",
+                                                    width: "70px",
+                                                    marginRight: "7px",
+                                                    borderRadius: "5px",
+                                                }}
                                                 className="delete-btn comment-buttons"
                                                 onClick={() =>
                                                     deleteComment(item.id)
@@ -61,6 +72,11 @@ const CommentsList = () => {
                                             </button>
                                             <br />
                                             <button
+                                                style={{
+                                                    fontSize: "20px",
+                                                    width: "70px",
+                                                    borderRadius: "5px",
+                                                }}
                                                 className="edit-btn comment-buttons"
                                                 onClick={(e) => {
                                                     document.querySelector(
@@ -72,6 +88,7 @@ const CommentsList = () => {
                                             </button>
                                         </div>
                                     ) : null}{" "}
+                                    <div>_________________________________</div>
                                 </Comment.Action>
                             </Comment.Actions>
                         </Comment.Content>

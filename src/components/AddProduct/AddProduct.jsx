@@ -101,5 +101,4 @@ const AddProduct = ({ history }) => {
         </Container>
     );
 };
-
 export default AddProduct;

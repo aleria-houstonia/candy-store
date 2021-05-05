@@ -87,61 +87,104 @@ const AllDescription = (props) => {
                             </button>
                         </div>
                     ) : (
-                        <div>
-                            <div className="table__cart">
-                                <div className="table__cart_img">
-                                    <img
-                                        src={productDetails.image}
-                                        className="demo-trigger"
-                                    />
-                                </div>
-                                <div className="table__cart_desc   detail">
-                                    <Box
-                                        component="fieldset"
-                                        mb={3}
-                                        borderColor="transparent"
-                                        style={{ textAlign: "center" }}
+                        <div className="table__cart">
+                            <div className="table__cart_img">
+                                <img
+                                    src={productDetails.image}
+                                    className="demo-trigger"
+                                    data-zoom={productDetails.image}
+                                />
+                                <div className="btn">
+                                    <Button
+                                        style={{
+                                            fontSize: "20px",
+                                            border: "2px solid black",
+                                        }}
                                     >
-                                        <Typography
-                                            component="legend"
-                                            style={{ fontSize: "13px" }}
-                                        >
-                                            Customer Reviews
-                                        </Typography>
-                                        <Rating
-                                            size="large"
-                                            name="simple-controlled"
-                                            value={value}
-                                            onChange={(event, newValue) => {
-                                                setValue(newValue);
-                                            }}
-                                        />
-                                    </Box>
-                                    <div className="table__cart_subtitle">
-                                        <h4 className="table__cart_subtitle">
-                                            {" "}
-                                            JUST FOR MOM GIFT BOX.
-                                        </h4>
-                                    </div>
-                                    <div className="table__cart_title">
-                                        <h4 className="table__cart_title">
-                                            {productDetails.title}
-                                        </h4>
-                                    </div>
-                                    <div className="table__cart_quick">
-                                        <strong>Quick Overview: </strong>
-                                    </div>
-                                    <div className="table__cart_quick_subtitle">
-                                        {productDetails.overview}
-                                    </div>
-                                    <div className="table-price">
-                                        ${productDetails.price}
+                                        <a href="#aiperi">Full Description</a>
+                                    </Button>
+                                    <div className="admin">
+                                        {" "}
+                                        {currentUser &&
+                                        currentUser.uid === adminUID ? (
+                                            // <div className="btn">
+                                            <button
+                                                onClick={() =>
+                                                    setEditStatus(true)
+                                                }
+                                            >
+                                                Edit
+                                            </button>
+                                        ) : // </div>
+                                        null}
                                     </div>
                                 </div>
                             </div>
-                            <div id="aiperi " className="table-desc">
-                                {productDetails.description}
+                            <div className="table__cart_desc   detail">
+                                <Box
+                                    component="fieldset"
+                                    mb={3}
+                                    borderColor="transparent"
+                                    style={{ textAlign: "center" }}
+                                >
+                                    <Typography
+                                        component="legend"
+                                        style={{ fontSize: "13px" }}
+                                    >
+                                        Customer Reviews
+                                    </Typography>
+                                    <Rating
+                                        size="large"
+                                        name="simple-controlled"
+                                        value={value}
+                                        onChange={(event, newValue) => {
+                                            setValue(newValue);
+                                        }}
+                                    />
+                                </Box>
+                                <div className="table__cart_title">
+                                    <h4 className="table__cart_title">
+                                        {productDetails.title}
+                                    </h4>
+                                </div>
+                                <span></span>
+                                <span></span>
+                                <div className="table__cart_quick">
+                                    <strong>Quick Overview: </strong>
+                                </div>
+                                <div className="table__cart_quick_subtitle">
+                                    {productDetails.overview}
+                                </div>
+                                {/* <div className="btn">
+                                    <Button
+                                        style={{
+                                            fontSize: "20px",
+                                            border: "2px solid black",
+                                        }}
+                                    >
+                                        <a href="#aiperi">Full Description</a>
+                                    </Button>
+                                </div> */}
+                                <div id="aiperi ">
+                                    <p className="table__text_p">
+                                        {" "}
+                                        {productDetails.description}
+                                    </p>
+                                </div>
                             </div>
+                            {/* <div  className="admin">
+                                {" "}
+                                {currentUser && currentUser.uid === adminUID ? (
+                                    <div>
+                                        <button
+                                            onClick={() => setEditStatus(true)}
+                                        >
+                                            
+                                            Редактировать
+                                        </button>
+                                    </div>
+                                ) : null}
+                            </div> */}
                         </div>
                     )}
                     <div className="buttons-description">

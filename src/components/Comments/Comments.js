@@ -5,29 +5,109 @@ import { commentContext } from "../../contexts/CommentContext";
 import { Comment } from "semantic-ui-react";
 import { useAuth } from "../../contexts/AuthContext";
 
+import "./Comments.css";
 const Comments = () => {
     const { getComment } = useContext(commentContext);
     const { currentUser } = useAuth();
     useEffect(() => {
         getComment();
     }, []);
-
     return (
-        <div>
-            /{" "}
+        <div className="comment-main">
+            {" "}
             <Comment.Group>
+                <CommentsList />
                 {currentUser ? (
                     <CommentsAdd />
                 ) : (
                     "Sign up or login to leave a comment"
                 )}
-                <CommentsList />
             </Comment.Group>
         </div>
     );
 };
-
 export default Comments;
+
+// import React, { useContext, useEffect } from "react";
+// import CommentsAdd from "./CommentsAdd";
+// import CommentsList from "./CommentsList";
+// import { commentContext } from "../../contexts/CommentContext";
+// import { Comment, Form, Button } from "semantic-ui-react";
+
+// const Comments = () => {
+//     const { getComment } = useContext(commentContext);
+//     useEffect(() => {
+//         getComment();
+//     }, []);
+
+//     return (
+//         <div>
+//             {" "}
+//             <Comment.Group>
+//                 {/* {console.log(comments)} */}
+
+//                 <Comment>
+//                     <Comment.Avatar
+//                         className="avatar"
+//                         src="https://react.semantic-ui.com/images/avatar/small/joe.jpg"
+//                     />
+//                     <Comment.Content>
+//                         <Comment.Author>
+//                             <h4 className="author">Your email </h4>
+//                         </Comment.Author>
+//                         <Form.TextArea className="enter__text" />
+//                         <Comment.Metadata>
+//                             <h4 className="author">Create your comments</h4>
+//                         </Comment.Metadata>
+//                         <Form.TextArea
+//                             className="enter__text"
+//                             value={comment}
+//                             onChange={(e) => setComment(e.target.value)}
+//                         />
+
+//                         <Comment.Text>
+//                             <p>{comment.text}</p>
+//                         </Comment.Text>
+//                     </Comment.Content>
+//                     <Form reply>
+//                         <Button
+//                             className="btn__comment"
+//                             style={{
+//                                 fontSize: "20px",
+//                                 border: "2px solid black",
+//                             }}
+//                             onClick={sendComment}
+//                             content="Add Comment"
+//                         ></Button>
+//                     </Form>
+//                 </Comment>
+//             </Comment.Group>
+//             {/* <Form reply>
+//                     <Form.TextArea className="enter__text" />
+//                     <TextField
+//                         variant={"outlined"}
+//                         fullWidth
+//                         rowsMax={2}
+//                         value={comment}
+//                         onChange={(e) => setComment(e.target.value)}
+//                     /> */}
+//             {/* <Button
+//                         onClick={sendComment}
+//                         content="Add Comment"
+//                         labelPosition="left"
+//                         icon="edit"
+//                         primary
+//                     /> */}
+//             {/* </Form>
+//             </Comment.Group> */}
+//             {/* <CommentsList />
+//                 <CommentsAdd /> */}
+//             {/* </Comment.Group> */}
+//         </div>
+//     );
+// };
+
+// export default Comments;
 
 //import React, { useState, useEffect } from "react";
 // import "./Comments.css";

@@ -67,14 +67,14 @@ const Header = () => {
                             <li class="navbar__item">
                                 <Link to="/events">Events</Link>
                             </li>
-                            <li class="navbar__item">
+                            <li className="navbar__item">
                                 <a href="#">Contact</a>
                             </li>
                             <li class="navbar__item">
                                 <Link to="/dash">My account</Link>
                                 <b></b>
                             </li>
-                            <li class="navbar__item">
+                            <li className="navbar__item">
                                 <Link to="/cart">Cart</Link>
                             </li>
                         </ul>
@@ -86,7 +86,7 @@ const Header = () => {
                     <div className="col-md-12">
                         <nav className="navbar navbar-default navbar-mobile bootsnav on">
                             <div className="navbar-header">
-                                <button
+                                {/* <button
                                     type="button "
                                     className="navbar-toggle"
                                     data-toggle="collapse"
@@ -94,7 +94,7 @@ const Header = () => {
                                 >
                                     <i className="fa fa-bars"></i>
                                     <a href="#" class="menu-btn"></a>
-                                </button>
+                                </button> */}
                             </div>
                             <div
                                 className="collapse navbar-collapse "

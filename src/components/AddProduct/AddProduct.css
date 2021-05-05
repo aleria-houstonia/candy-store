@@ -1,33 +1,44 @@
 .adding-container {
     display: flex;
     flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 30px;
+}
+.adding-container input:hover {
+    font-size: 20px;
+    background-color: #dde4f1;
+}
+.adding-container textarea:hover {
+    font-size: 20px;
+    background-color: #dde4f1;
+}
+.adding_list {
+    width: 100%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-image: url("https://images.pexels.com/photos/913136/pexels-photo-913136.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500");
+}
+.adding_inp {
+    margin-bottom: 20px;
+    background-color: #dde4f1;
+    color: darkred;
+}
+.adding_textarea {
+    margin-bottom: 20px;
+}
+.adding_btn:hover {
+    color: blanchedalmond;
+    background-color: #e5986a;
+}
+.adding_btn {
+    margin-bottom: 20px;
+    border-color: #bc3b0b;
+}
 
-    /* width: 400px; */
-}
-.adding-container input {
-    font-size: 40px;
-    margin-bottom: 5px;
+input {
+    width: 345px;
+    height: 50px;
     text-align: center;
-    border: none;
-    border-bottom: 2px solid tomato;
-}
-.adding-container textarea {
-    font-size: 40px;
-    text-align: center;
-    border: none;
-    border-bottom: 2px solid tomato;
-}
-
-.add-input:hover {
-    outline: 5px solid tomato;
-}
-.button-add {
-    outline: none;
-    background: tomato;
-    color: rgb(255, 255, 255);
-    font-size: 18px;
-    border-radius: 10px;
-    margin-top: 15px;
-    width: 200px;
-    height: 40px;
 }

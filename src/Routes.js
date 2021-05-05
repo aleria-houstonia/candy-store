@@ -77,7 +77,7 @@ const Routes = () => {
                         />
                         <Route exact path="/events" component={Events} />
                     </Switch>
-                    {/* <Footer /> */}
+                    <Footer />
                 </BrowserRouter>
             </CommentContextProvider>
         </ProductsContextProvider>

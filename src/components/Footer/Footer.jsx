@@ -11,41 +11,14 @@ const Footer = () => {
         <div className="footer">
             <div className="footer-feat footer-div">
                 <p className="footer-feat-title">AS FEATURED IN</p>
-                <div className="footer-feat-logo">
-                    <img src="https://cdn3.bigcommerce.com/s-7c08qbh/templates/__custom/images/footer_newyork_time_logo.png?t=1526915043" />
-                </div>
+
                 <p className="footer-feat-text">
                     © 2021 ALL RIGHTS RESERVED
                     <br /> Di Bruno Bros.
                 </p>
                 <p className="footer-feat-text-two">PRIVACY POLICY</p>
             </div>
-            {/* <div className="footer-products  footer-div">
-                <ul>
-                    <li>GIFTS</li>
-                    <li>CHEESE</li>
-                    <li>SPECIALTY FOODS</li>
-                </ul>
-            </div> */}
-            <div className="footer-about  footer-div">
-                <div>
-                    <ul>
-                        <li>ABOUT US</li>
-                        <li>LOCATIONS</li>
-                        <li>CONTACT</li>
-                        <li>PRESS</li>
-                        <li>FAQS</li>
-                    </ul>
-                </div>
-                <div>
-                    <ul>
-                        <li> CATERING </li>
-                        <li> CORPORATE GIFTS</li>
-                        <li> CAREERS</li>
-                        <li> SHIPPING</li>
-                    </ul>
-                </div>
-            </div>
+
             <div className="footer-signup  footer-div">
                 <p className="footer-signup-title">BE THE FIRST TO KNOW</p>
                 <p className="footer-signup-text">
@@ -84,7 +57,7 @@ const Footer = () => {
                         CULINARY PIONEERS SINCE 1939
                     </p>
                     <div className="footer-follow-logo">
-                        <img src="https://cdn3.bigcommerce.com/s-7c08qbh/templates/__custom/images/quality_guarantee_seal_white.png?t=1526915043" />
+                        {/* <img src="https://cdn3.bigcommerce.com/s-7c08qbh/templates/__custom/images/quality_guarantee_seal_white.png?t=1526915043" /> */}
                     </div>
                 </div>
             </div>
