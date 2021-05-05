@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Container } from "react-bootstrap";
 import { productContext } from "../../contexts/ProductsContext";
 import "./AddProduct.css";
-const AddProduct = () => {
+const AddProduct = ({ history }) => {
     const { postProduct } = useContext(productContext);
     const [product, setProduct] = useState({
         title: "",
@@ -21,7 +21,7 @@ const AddProduct = () => {
         setProduct(newProduct);
     };
     const handleClick = () => {
-        postProduct(product);
+        postProduct(product, history);
         setProduct({
             title: "",
             price: "",

@@ -8,8 +8,20 @@ import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import "./Products.css";
-import { Menu, MenuItem, Button } from "@material-ui/core";
+import {
+    Menu,
+    MenuItem,
+    Button,
+    FormControlLabel,
+    Paper,
+    FormControl,
+    FormLabel,
+    RadioGroup,
+    Radio,
+    Grid,
+} from "@material-ui/core";
 import Pagination from "@material-ui/lab/Pagination";
+
 const useStyles = makeStyles((theme) => ({
     root: {
         width: "100%",
@@ -123,6 +135,18 @@ const ProductsList = ({ history }) => {
         // handleClose();
     };
     // /posts?_sort=views&_order=asc
+
+    const handleChangeCategory = (e) => {
+        if (e.target.value === "All") {
+            history.push(`${history.location.pathname.replace("category")}`);
+            getProducts(history);
+            return;
+        }
+        const search = new URLSearchParams(history.location.search);
+        search.set("category", e.target.value);
+        history.push(`${history.location.pathname}?${search.toString()}`);
+        getProducts(history);
+    };
     return (
         <div>
             <div
@@ -229,6 +253,68 @@ const ProductsList = ({ history }) => {
                                 >
                                     Update
                                 </button>
+                            </AccordionDetails>
+                        </Accordion>
+                        <Accordion>
+                            <AccordionSummary
+                                expandIcon={<ExpandMoreIcon />}
+                                aria-controls="panel1a-content"
+                                id="panel1a-header"
+                            >
+                                <Typography
+                                    variant="h5"
+                                    className={classes.heading}
+                                >
+                                    Category
+                                </Typography>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                <Grid item m={3}>
+                                    <Paper className={classes.paper}>
+                                        {" "}
+                                        <FormControl component="fieldset">
+                                            <FormLabel component="legend">
+                                                Category
+                                            </FormLabel>
+                                            <RadioGroup
+                                                onChange={handleChangeCategory}
+                                                aria-label="category"
+                                                name="category"
+                                            >
+                                                <FormControlLabel
+                                                    value="cheese"
+                                                    control={<Radio />}
+                                                    label="cheese"
+                                                />
+                                                <FormControlLabel
+                                                    value="sause"
+                                                    control={<Radio />}
+                                                    label="sause"
+                                                />
+                                                <FormControlLabel
+                                                    value="meats"
+                                                    control={<Radio />}
+                                                    label="meats"
+                                                />
+                                                <FormControlLabel
+                                                    value="gift"
+                                                    control={<Radio />}
+                                                    label="gift"
+                                                />
+                                                <FormControlLabel
+                                                    value="sweets"
+                                                    control={<Radio />}
+                                                    label="sweets"
+                                                />
+                                                <FormControlLabel
+                                                    value="All"
+                                                    control={<Radio />}
+                                                    label="All"
+                                                />
+                                            </RadioGroup>
+                                        </FormControl>
+                                    </Paper>
+                                </Grid>
                             </AccordionDetails>
                         </Accordion>
                     </AccordionDetails>
