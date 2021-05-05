@@ -9,16 +9,18 @@ const Events = () => {
     const [value, onChange] = useState(new Date());
     return (
         <>
-            <div className="main_block">
-                <div className="comment">
-                    <h2>UPCOMING EVENTS</h2>
-                    <h4>Di Bruno Bros.</h4>
+            <div className="comment__back ">
+                <div className="comment_name">
+                    <h2 className="comment_name_h">UPCOMING EVENTS</h2>
+                    <h4 className="comment_name_hl">Di Bruno Bros.</h4>
                     <div className="comment_title">
                         {" "}
-                        <h4>There are no upcoming events.</h4>
+                        <h4 className="comment_name_hlm">
+                            There are no upcoming events.
+                        </h4>
                     </div>
-                    <h1>SOCIAL SHARING</h1>
-                    <h3>From Our Events</h3>
+                    <h2 className="comment_name_h">SOCIAL SHARING</h2>
+                    <h4 className="comment_name_hlm">From Our Events</h4>
                 </div>
                 <div className="calendar">
                     <Calendar onChange={onChange} value={value} />

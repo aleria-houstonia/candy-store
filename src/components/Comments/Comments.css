@@ -1,4 +1,16 @@
-.form_card_elem {
+.comment__item {
+    font-size: 25px;
+}
+.comment-main {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    /* width: 400px; */
+}
+.comment-main {
+    background-color: #c4cad0;
+}
+/* .form_card_elem {
     background-size: 100%;
     background-repeat: no-repeat;
     background-image: url("https://images.pexels.com/photos/913136/pexels-photo-913136.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500");
@@ -85,7 +97,7 @@ img {
 .coment {
     padding-left: 50px;
 }
-*/ .comment-button {
+ .comment-button {
     margin-top: 5px;
     background: #f3f0f1;
     position: relative;
@@ -94,7 +106,7 @@ img {
     border-radius: 32px;
     text-align: center;
     cursor: pointer;
-    /* line-height: 100px; */
+   
     height: 20px;
     width: 100px;
     font-family: "Montserrat", sans-serif;
@@ -124,7 +136,7 @@ img {
     border-radius: 32px;
     text-align: center;
     cursor: pointer;
-    /* line-height: 100px; */
+  
     height: 10px;
     width: 40px;
     font-family: "Montserrat", sans-serif;
@@ -144,4 +156,4 @@ img {
     box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5),
         inset 8px 8px 16px rgba(0, 0, 0, 0.1);
     color: #79e3b6;
-}
+} */

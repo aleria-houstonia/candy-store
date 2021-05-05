@@ -29,10 +29,14 @@ const CommentsAdd = () => {
         });
     };
     return (
-        <div>
+        <div className="form__btn">
             <Form reply>
-                {/* <Form.TextArea /> */}
                 <TextField
+                    style={{
+                        marginTop: "10px",
+                        marginBottom: "10px",
+                        borderRadius: "5px",
+                    }}
                     variant={"outlined"}
                     fullWidth
                     rowsMax={2}
