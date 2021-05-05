@@ -118,11 +118,9 @@ const AllDescription = (props) => {
                                     src={productDetails.image}
                                     className="demo-trigger"
                                     data-zoom={productDetails.image}
-                                    // srcZoom={productDetails.image}
                                 />
                                 <div className="btn">
                                     <Button
-                                        // className="btn__button"
                                         style={{
                                             fontSize: "20px",
                                             border: "2px solid black",
@@ -130,6 +128,21 @@ const AllDescription = (props) => {
                                     >
                                         <a href="#aiperi">Full Description</a>
                                     </Button>
+                                    <div className="admin">
+                                        {" "}
+                                        {currentUser &&
+                                        currentUser.uid === adminUID ? (
+                                            // <div className="btn">
+                                            <button
+                                                onClick={() =>
+                                                    setEditStatus(true)
+                                                }
+                                            >
+                                                Edit
+                                            </button>
+                                        ) : // </div>
+                                        null}
+                                    </div>
                                 </div>
                             </div>
                             <div
@@ -193,19 +206,19 @@ const AllDescription = (props) => {
                                     </p>
                                 </div>
                             </div>
-                            <div>
+                            {/* <div  className="admin">
                                 {" "}
                                 {currentUser && currentUser.uid === adminUID ? (
                                     <div>
                                         <button
                                             onClick={() => setEditStatus(true)}
                                         >
-                                            {/* <img src="https://www.freeiconspng.com/uploads/edit-icon-orange-pencil-0.png" /> */}
+                                            
                                             Редактировать
                                         </button>
                                     </div>
                                 ) : null}
-                            </div>
+                            </div> */}
                         </div>
                     )}
                 </div>
