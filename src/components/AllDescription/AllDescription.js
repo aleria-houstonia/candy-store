@@ -7,13 +7,16 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import { useAuth } from "../../contexts/AuthContext";
 import { adminUID } from "../../helpers/API";
-import Drift from "drift-zoom";
+
 const AllDescription = (props) => {
     const [editStatus, setEditStatus] = useState(false);
     const [editedTopic, setEditedTopic] = useState({});
-    const { productDetails, getProductDetails, saveTopic } = useContext(
-        productContext
-    );
+    const {
+        productDetails,
+        getProductDetails,
+        saveTopic,
+        addProductToCart,
+    } = useContext(productContext);
     const { currentUser } = useAuth();
     const [value, setValue] = React.useState(2);
 
@@ -30,39 +33,12 @@ const AllDescription = (props) => {
     };
     useEffect(() => {
         getProductDetails(props.match.params.id);
-        // let Drift;
-        // if (typeof window !== "undefined") {
-        //     Drift = require("drift-zoom").default;
-        // }
-        // new Drift(imgRef.current, {
-        //     paneContainer: detailRef.current,
-        // inlineContainer: inlineContainerRef.current,
-        // });x
     }, [editStatus]);
     const handleSave = () => {
         setEditStatus(false);
         saveTopic(props.match.params.id, editedTopic);
     };
-    // var demoTrigger = document.querySelector(".demo-trigger");
-    // var paneContainer = document.querySelector(".detail");
-    const imgRef = useRef();
-    // const imgRef = document.querySelector(".demo-trigger");
-    const detailRef = useRef();
-    // new Drift(imgRef, {
-    //     paneContainer: detailRef,
-    //     inlinePane: false,
-    // });
 
-    // useEffect(() => {
-    //     let Drift;
-    //     if (typeof window !== "undefined") {
-    //         Drift = require("drift-zoom").default;
-    //     }
-    //     new Drift(imgRef.current, {
-    //         paneContainer: detailRef.current,
-    //         // inlineContainer: inlineContainerRef.current,
-    //     });
-    // }, []);
     return (
         <div>
             {productDetails ? (
@@ -114,7 +90,6 @@ const AllDescription = (props) => {
                         <div className="table__cart">
                             <div className="table__cart_img">
                                 <img
-                                    ref={imgRef}
                                     src={productDetails.image}
                                     className="demo-trigger"
                                     data-zoom={productDetails.image}
@@ -145,10 +120,7 @@ const AllDescription = (props) => {
                                     </div>
                                 </div>
                             </div>
-                            <div
-                                className="table__cart_desc   detail"
-                                ref={detailRef}
-                            >
+                            <div className="table__cart_desc   detail">
                                 <Box
                                     component="fieldset"
                                     mb={3}
@@ -170,12 +142,6 @@ const AllDescription = (props) => {
                                         }}
                                     />
                                 </Box>
-                                <div className="table__cart_subtitle">
-                                    <h4 className="table__cart_subtitle">
-                                        {" "}
-                                        JUST FOR MOM GIFT BOX.
-                                    </h4>
-                                </div>
                                 <div className="table__cart_title">
                                     <h4 className="table__cart_title">
                                         {productDetails.title}
@@ -221,6 +187,19 @@ const AllDescription = (props) => {
                             </div> */}
                         </div>
                     )}
+                    <div className="buttons-description">
+                        {currentUser && currentUser.uid === adminUID ? (
+                            <div>
+                                <button
+                                    className="button-des"
+                                    onClick={() => setEditStatus(true)}
+                                >
+                                    {/* <img src="https://www.freeiconspng.com/uploads/edit-icon-orange-pencil-0.png" /> */}
+                                    Edit
+                                </button>
+                            </div>
+                        ) : null}
+                    </div>
                 </div>
             ) : (
                 "details"

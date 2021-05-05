@@ -3,7 +3,6 @@ import { useAuth } from "../../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import { Card, Button, Container, Alert } from "react-bootstrap";
 import "./Dashboard.css";
-
 const Dashboard = () => {
     const [error, setError] = useState("");
     const { currentUser, logout } = useAuth();

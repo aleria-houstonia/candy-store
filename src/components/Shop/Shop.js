@@ -49,23 +49,22 @@ const Shop = () => {
             <div className="gifts">
                 <div className="gifts__card">
                     <div className="sidebar">
-                        <div className="sidebar__menu1 menu-side">
-                            <a href="https://dibruno.com/gifts/gourmet-gift-boxes-and-cheese-plates/">
+                        <a href="https://dibruno.com/gifts/gourmet-gift-boxes-and-cheese-plates/">
+                            <div className="sidebar__menu1 menu-side">
                                 <h4 className="sidebar__menu">
                                     <strong>
                                         Gourmet Gift Boxes and Cheese Plates
                                     </strong>
                                 </h4>
-                            </a>
-                        </div>
-
-                        <div className="sidebar__menu2 menu-side">
-                            <a href="https://dibruno.com/gifts/mothers-day/">
+                            </div>
+                        </a>
+                        <a href="https://dibruno.com/gifts/mothers-day/">
+                            <div className="sidebar__menu2 menu-side">
                                 <h4 className="sidebar__menu">
                                     <strong>Mother's Day</strong>
                                 </h4>
-                            </a>
-                        </div>
+                            </div>
+                        </a>
                         <div className="sidebar__menu3 menu-side">
                             <a href="/products">
                                 <h4 className="sidebar__menu">
@@ -73,44 +72,41 @@ const Shop = () => {
                                 </h4>
                             </a>
                         </div>
-                        <div className="sidebar__menu4 menu-side">
-                            <a href="https://dibruno.com/gifts/virtual-pairings/">
+                        <a href="https://dibruno.com/gifts/virtual-pairings/">
+                            <div className="sidebar__menu4 menu-side">
                                 <h4 className="sidebar__menu">
                                     <strong> Virtual Pairings</strong>
                                 </h4>
-                            </a>
-                        </div>
-                        <div className="sidebar__menu5 menu-side">
-                            <a
-                                a
-                                href="https://dibruno.com/gifts/monthly-clubs/"
-                            >
+                            </div>
+                        </a>
+                        <a href="https://dibruno.com/gifts/monthly-clubs/">
+                            <div className="sidebar__menu5 menu-side">
                                 <h4 className="sidebar__menu">
                                     <strong> Monthly Clubs</strong>
                                 </h4>
-                            </a>
-                        </div>
-                        <div className="sidebar__menu6 menu-side">
-                            <a href="https://dibruno.com/corporate-gifting/">
+                            </div>
+                        </a>
+                        <a href="https://dibruno.com/corporate-gifting/">
+                            <div className="sidebar__menu6 menu-side">
                                 <h4 className="sidebar__menu">
                                     <strong> Corporate Gifting</strong>
                                 </h4>
-                            </a>
-                        </div>
-                        <div className="sidebar__menu7 menu-side">
-                            <a href="https://dibruno.com/gifts/best-sellers/">
+                            </div>
+                        </a>
+                        <a href="https://dibruno.com/gifts/best-sellers/">
+                            <div className="sidebar__menu7 menu-side">
                                 <h4 className="sidebar__menu">
                                     <strong> Best sellers</strong>
                                 </h4>
-                            </a>
-                        </div>
-                        <div className="sidebar__menu8 menu-side">
-                            <a href="https://dibruno.com/gifts/gift-cards/">
+                            </div>
+                        </a>
+                        <a href="https://dibruno.com/gifts/gift-cards/">
+                            <div className="sidebar__menu8 menu-side">
                                 <h4 className="sidebar__menu">
                                     <strong>Best Sellers </strong>{" "}
                                 </h4>
-                            </a>
-                        </div>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>

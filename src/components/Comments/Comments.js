@@ -3,9 +3,12 @@ import CommentsAdd from "./CommentsAdd";
 import CommentsList from "./CommentsList";
 import { commentContext } from "../../contexts/CommentContext";
 import { Comment } from "semantic-ui-react";
+import { useAuth } from "../../contexts/AuthContext";
+
 import "./Comments.css";
 const Comments = () => {
     const { getComment } = useContext(commentContext);
+    const { currentUser } = useAuth();
     useEffect(() => {
         getComment();
     }, []);
@@ -14,8 +17,11 @@ const Comments = () => {
             {" "}
             <Comment.Group>
                 <CommentsList />
-
-                <CommentsAdd />
+                {currentUser ? (
+                    <CommentsAdd />
+                ) : (
+                    "Sign up or login to leave a comment"
+                )}
             </Comment.Group>
         </div>
     );
