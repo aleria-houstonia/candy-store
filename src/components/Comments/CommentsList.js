@@ -24,6 +24,7 @@ const CommentsList = () => {
             id: editInputId,
         };
         saveTopic(id, editedTask);
+        getComment();
         document.querySelector("#k" + id).style.display = "none";
     };
 

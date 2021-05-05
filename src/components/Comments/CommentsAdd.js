@@ -1,17 +1,20 @@
 import { TextField } from "@material-ui/core";
 import { CommentSharp } from "@material-ui/icons";
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Button, Form } from "semantic-ui-react";
 import { commentContext } from "../../contexts/CommentContext";
 import { useAuth } from "../../contexts/AuthContext";
 import "./Comments.css";
 const CommentsAdd = () => {
     const { currentUser } = useAuth();
-    const { postNewComment } = useContext(commentContext);
+    const { postNewComment, getComment } = useContext(commentContext);
     const [com, setCom] = useState({
         text: "",
         author: "",
     });
+    // useEffect(() => {
+    //     getComment();
+    // }, []);
     const handleValues = (e) => {
         let newComment = {
             ...com,
@@ -24,6 +27,7 @@ const CommentsAdd = () => {
     };
     const sendComment = () => {
         postNewComment(com);
+        getComment();
         setCom({
             text: "",
         });

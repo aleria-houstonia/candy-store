@@ -94,5 +94,12 @@ td input {
 }
 
 .cart-noprod {
-    font-family: Freehand 521;
+    color: #fcdde8;
+
+    font-size: 80px;
+    font-weight: 900;
+    text-shadow: -0.0075em 0.0075em 0 #f80053, 0.005em 0.005em 0 #f6a5c1,
+        0.01em 0.01em 0 #f7aac4, 0.015em 0.015em #ee4b84,
+        0.02em 0.02em 0 #f8b3ca, 0.025em 0.025em 0 #f8b7cd,
+        0.03em 0.03em 0 #cc0044, 0.035em 0.035em 0 #f9c0d3;
 }

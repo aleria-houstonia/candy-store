@@ -7,13 +7,16 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import { useAuth } from "../../contexts/AuthContext";
 import { adminUID } from "../../helpers/API";
-import Drift from "drift-zoom";
+
 const AllDescription = (props) => {
     const [editStatus, setEditStatus] = useState(false);
     const [editedTopic, setEditedTopic] = useState({});
-    const { productDetails, getProductDetails, saveTopic } = useContext(
-        productContext
-    );
+    const {
+        productDetails,
+        getProductDetails,
+        saveTopic,
+        addProductToCart,
+    } = useContext(productContext);
     const { currentUser } = useAuth();
     const [value, setValue] = React.useState(2);
 
@@ -30,39 +33,12 @@ const AllDescription = (props) => {
     };
     useEffect(() => {
         getProductDetails(props.match.params.id);
-        // let Drift;
-        // if (typeof window !== "undefined") {
-        //     Drift = require("drift-zoom").default;
-        // }
-        // new Drift(imgRef.current, {
-        //     paneContainer: detailRef.current,
-        // inlineContainer: inlineContainerRef.current,
-        // });x
     }, [editStatus]);
     const handleSave = () => {
         setEditStatus(false);
         saveTopic(props.match.params.id, editedTopic);
     };
-    // var demoTrigger = document.querySelector(".demo-trigger");
-    // var paneContainer = document.querySelector(".detail");
-    const imgRef = useRef();
-    // const imgRef = document.querySelector(".demo-trigger");
-    const detailRef = useRef();
-    // new Drift(imgRef, {
-    //     paneContainer: detailRef,
-    //     inlinePane: false,
-    // });
 
-    // useEffect(() => {
-    //     let Drift;
-    //     if (typeof window !== "undefined") {
-    //         Drift = require("drift-zoom").default;
-    //     }
-    //     new Drift(imgRef.current, {
-    //         paneContainer: detailRef.current,
-    //         // inlineContainer: inlineContainerRef.current,
-    //     });
-    // }, []);
     return (
         <div>
             {productDetails ? (
@@ -111,86 +87,101 @@ const AllDescription = (props) => {
                             </button>
                         </div>
                     ) : (
-                        <div className="table__cart">
-                            <div className="table__cart_img">
-                                <img
-                                    ref={imgRef}
-                                    src={productDetails.image}
-                                    className="demo-trigger"
-                                    data-zoom={productDetails.image}
-                                    // srcZoom={productDetails.image}
-                                />
-                            </div>
-                            <div
-                                className="table__cart_desc   detail"
-                                ref={detailRef}
-                            >
-                                <Box
-                                    component="fieldset"
-                                    mb={3}
-                                    borderColor="transparent"
-                                    style={{ textAlign: "center" }}
-                                >
-                                    <Typography
-                                        component="legend"
-                                        style={{ fontSize: "13px" }}
-                                    >
-                                        Customer Reviews
-                                    </Typography>
-                                    <Rating
-                                        size="large"
-                                        name="simple-controlled"
-                                        value={value}
-                                        onChange={(event, newValue) => {
-                                            setValue(newValue);
-                                        }}
+                        <div>
+                            <div className="table__cart">
+                                <div className="table__cart_img">
+                                    <img
+                                        src={productDetails.image}
+                                        className="demo-trigger"
                                     />
-                                </Box>
-                                <div className="table__cart_subtitle">
-                                    <h4 className="table__cart_subtitle">
-                                        {" "}
-                                        JUST FOR MOM GIFT BOX.
-                                    </h4>
                                 </div>
-                                <div className="table__cart_title">
-                                    <h4 className="table__cart_title">
-                                        {productDetails.title}
-                                    </h4>
-                                </div>
-                                <span></span>
-                                <span></span>
-                                <div className="table__cart_quick">
-                                    <strong>Quick Overview: </strong>
-                                </div>
-                                <div className="table__cart_quick_subtitle">
-                                    {productDetails.overview}
-                                </div>
-                                <div className="btn">
-                                    <Button
+                                <div className="table__cart_desc   detail">
+                                    <Box
+                                        component="fieldset"
+                                        mb={3}
+                                        borderColor="transparent"
+                                        style={{ textAlign: "center" }}
+                                    >
+                                        <Typography
+                                            component="legend"
+                                            style={{ fontSize: "13px" }}
+                                        >
+                                            Customer Reviews
+                                        </Typography>
+                                        <Rating
+                                            size="large"
+                                            name="simple-controlled"
+                                            value={value}
+                                            onChange={(event, newValue) => {
+                                                setValue(newValue);
+                                            }}
+                                        />
+                                    </Box>
+                                    <div className="table__cart_subtitle">
+                                        <h4 className="table__cart_subtitle">
+                                            {" "}
+                                            JUST FOR MOM GIFT BOX.
+                                        </h4>
+                                    </div>
+                                    <div className="table__cart_title">
+                                        <h4 className="table__cart_title">
+                                            {productDetails.title}
+                                        </h4>
+                                    </div>
+                                    <div className="table__cart_quick">
+                                        <strong>Quick Overview: </strong>
+                                    </div>
+                                    <div className="table__cart_quick_subtitle">
+                                        {productDetails.overview}
+                                    </div>
+                                    <div>
+                                        <a href="#aiperi">
+                                            <button
+                                                className="button-des"
+                                                // style={{
+                                                //     fontSize: "20px",
+                                                //     border: "2px solid black",
+                                                // }}
+                                            >
+                                                Full Description
+                                            </button>
+                                        </a>
+                                    </div>
+                                    <div className="table-price">
+                                        ${productDetails.price}
+                                    </div>
+                                    <div
                                         style={{
-                                            fontSize: "20px",
-                                            border: "2px solid black",
+                                            display: "flex",
                                         }}
                                     >
-                                        <a href="#aiperi">Full Description</a>
-                                    </Button>
-                                </div>
-                                <div id="aiperi ">
-                                    {productDetails.description}
+                                        <button
+                                            className="button-des"
+                                            onClick={() =>
+                                                addProductToCart(props.item)
+                                            }
+                                        >
+                                            Add to Cart
+                                        </button>
+                                        {currentUser &&
+                                        currentUser.uid === adminUID ? (
+                                            <div>
+                                                <button
+                                                    className="button-des"
+                                                    onClick={() =>
+                                                        setEditStatus(true)
+                                                    }
+                                                >
+                                                    {/* <img src="https://www.freeiconspng.com/uploads/edit-icon-orange-pencil-0.png" /> */}
+                                                    Edit
+                                                </button>
+                                            </div>
+                                        ) : null}
+                                    </div>{" "}
                                 </div>
                             </div>
-                            <div>
-                                {" "}
-                                {currentUser && currentUser.uid === adminUID ? (
-                                    <div>
-                                        <button
-                                            onClick={() => setEditStatus(true)}
-                                        >
-                                            {/* <img src="https://www.freeiconspng.com/uploads/edit-icon-orange-pencil-0.png" /> */}
-                                            Редактировать
-                                        </button>
-                                    </div>
-                                ) : null}
+                            <div id="aiperi " className="table-desc">
+                                {productDetails.description}
                             </div>
                         </div>
                     )}

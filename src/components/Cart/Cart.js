@@ -99,7 +99,9 @@ const Cart = () => {
             ) : (
                 // <CircularProgress />
 
-                <h1 className="cart-noprod">Корзина пуста</h1>
+                <h1 className="cart-noprod" style={{ textAlign: "center" }}>
+                    Корзина пуста
+                </h1>
             )}
             <Modal
                 title={"Modal 1 Title"}

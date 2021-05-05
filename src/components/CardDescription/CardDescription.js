@@ -77,8 +77,8 @@ const CardDescription = () => {
                         </div>
                     </div>
                     <div
-                        data-aos="fade-left"
                         className="card__item_img_second"
+                        data-aos="fade-left"
                         data-aos-duration="1000"
                     >
                         <img src="https://cdn11.bigcommerce.com/s-7c08qbh/product_images/uploaded_images/try-something-home-banner.jpg" />
