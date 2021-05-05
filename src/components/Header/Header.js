@@ -67,14 +67,14 @@ const Header = () => {
                             <li class="navbar__item">
                                 <Link to="/events">Events</Link>
                             </li>
-                            <li class="navbar__item">
+                            <li className="navbar__item">
                                 <a href="#">Contact</a>
                             </li>
                             <li class="navbar__item">
                                 <Link to="/dash">My account</Link>
                                 <b></b>
                             </li>
-                            <li class="navbar__item">
+                            <li className="navbar__item">
                                 <Link to="/cart">Cart</Link>
                             </li>
                         </ul>

@@ -33,7 +33,10 @@ const CardDescription = () => {
                         data-aos="fade-right"
                         data-aos-duration="1000"
                     >
-                        <img src="https://cdn11.bigcommerce.com/s-7c08qbh/product_images/uploaded_images/mom-abbo-banner-home.jpg" />
+                        <img
+                            className="card__item_img"
+                            src="https://cdn11.bigcommerce.com/s-7c08qbh/product_images/uploaded_images/mom-abbo-banner-home.jpg"
+                        />
                     </div>
                     <div
                         className="card__item_text"
@@ -81,7 +84,10 @@ const CardDescription = () => {
                         className="card__item_img_second"
                         data-aos-duration="1000"
                     >
-                        <img src="https://cdn11.bigcommerce.com/s-7c08qbh/product_images/uploaded_images/try-something-home-banner.jpg" />
+                        <img
+                            className="card__item_img"
+                            src="https://cdn11.bigcommerce.com/s-7c08qbh/product_images/uploaded_images/try-something-home-banner.jpg"
+                        />
                     </div>
                 </div>
             </div>

@@ -1,5 +1,65 @@
-
-.main_block{
+.comment__back {
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-image: url("https://images.pexels.com/photos/5945565/pexels-photo-5945565.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500");
     display: flex;
-    justify-content: space-evenly;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-bottom: 25px;
+    padding-top: 30px;
+    height: 100vh;
+}
+@media screen and (min-width: 1024px) {
+    .comment_name_h {
+        font-size: 70px;
+    }
+    .comment_name_hl {
+        font-size: 50px;
+    }
+    .comment_name_hlm {
+        font-size: 30px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .comment_name_h {
+        font-size: 50px;
+    }
+    .comment_name_hl {
+        font-size: 30px;
+    }
+    .comment_name_hlm {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 425px) {
+    .comment_name_h {
+        font-size: 30px;
+    }
+    .comment_name_hl {
+        font-size: 20px;
+    }
+    .comment_name_hlm {
+        font-size: 10px;
+        padding-bottom: 5px;
+    }
+    .calendar {
+        width: 300px;
+    }
+    .comment__back {
+        height: 420px;
+    }
+}
+@media screen and (min-width: 425px) {
+    .comment {
+        padding-right: 0px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .comment__item {
+        width: 200px;
+    }
 }
