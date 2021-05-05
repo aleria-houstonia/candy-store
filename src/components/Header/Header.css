@@ -57,7 +57,7 @@ a {
     flex-wrap: wrap;
     width: 300px;
     justify-content: center;
-    padding-left: 57px;
+    padding-left: 53px;
 }
 .navbar__item a {
     text-decoration: none;
@@ -218,7 +218,7 @@ nav.navbar.bootsnav li.dropdown ul.dropdown-menu.megamenu-content .title {
 @media screen and (min-width: 400px) {
     .navbar__menu {
         width: 34%;
-        padding-left: 105px;
+        padding-left: 52px;
     }
 }
 @media screen and (min-width: 512px) {
@@ -230,6 +230,7 @@ nav.navbar.bootsnav li.dropdown ul.dropdown-menu.megamenu-content .title {
 @media screen and (min-width: 530px) {
     .navbar__middle {
         justify-content: center;
+        padding-right: 139px;
     }
 }
 

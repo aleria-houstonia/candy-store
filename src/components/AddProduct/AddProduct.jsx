@@ -1,9 +1,8 @@
 import React, { useContext, useState } from "react";
 import { Container } from "react-bootstrap";
 import { productContext } from "../../contexts/ProductsContext";
-import { Button } from "@material-ui/core";
 import "./AddProduct.css";
-const AddProduct = () => {
+const AddProduct = ({ history }) => {
     const { postProduct } = useContext(productContext);
     const [product, setProduct] = useState({
         title: "",
@@ -22,7 +21,7 @@ const AddProduct = () => {
         setProduct(newProduct);
     };
     const handleClick = () => {
-        postProduct(product);
+        postProduct(product, history);
         setProduct({
             title: "",
             price: "",
@@ -34,78 +33,72 @@ const AddProduct = () => {
         });
     };
     return (
-        <div className="adding_list">
+        <Container
+            className="d-flex flex-column align-items-center justify-content-center"
+            style={{ minHeight: "100vh" }}
+        >
             <div className="adding-container">
-                <div className="adding_inp">
-                    <input
-                        onChange={handleValues}
-                        value={product.title}
-                        type="text"
-                        placeholder="title"
-                        name="title"
-                    />
-                </div>
-                <div className="adding_inp">
-                    <input
-                        onChange={handleValues}
-                        value={product.price}
-                        type="text"
-                        placeholder="price"
-                        name="price"
-                    />
-                </div>
-                <div className="adding_inp">
-                    <input
-                        onChange={handleValues}
-                        value={product.titleOverview}
-                        type="text"
-                        placeholder="title-overview"
-                        name="titleOverview"
-                    />
-                </div>
-                <div className="adding_textarea">
-                    <textarea
-                        type="text"
-                        placeholder="quick overview:"
-                        name="overview"
-                        onChange={handleValues}
-                        value={product.overview}
-                    ></textarea>
-                </div>
-                <div className="adding_textarea">
-                    <textarea
-                        type="text"
-                        placeholder="description"
-                        name="description"
-                        onChange={handleValues}
-                        value={product.description}
-                    ></textarea>
-                </div>
-                <div className="adding_inp">
-                    <input
-                        onChange={handleValues}
-                        value={product.image}
-                        type="text"
-                        placeholder="image"
-                        name="image"
-                    />
-                </div>
-                <div className="adding_btn">
-                    <Button
-                        style={{
-                            fontSize: "20px",
-                            border: "2px solid black",
-                            width: "300px",
-                        }}
-                        onClick={handleClick}
-                    >
-                        Add
-                    </Button>
-                </div>
-                {/* <button onClick={handleClick}>Add</button> */}
+                <input
+                    className="add-input"
+                    onChange={handleValues}
+                    value={product.title}
+                    type="text"
+                    placeholder="title"
+                    name="title"
+                />
+                <input
+                    className="add-input"
+                    onChange={handleValues}
+                    value={product.price}
+                    type="text"
+                    placeholder="price"
+                    name="price"
+                />
+                <input
+                    className="add-input"
+                    onChange={handleValues}
+                    value={product.category}
+                    type="text"
+                    placeholder="category"
+                    name="category"
+                />
+                <input
+                    className="add-input"
+                    onChange={handleValues}
+                    value={product.titleOverview}
+                    type="text"
+                    placeholder="title-overview"
+                    name="titleOverview"
+                />
+                <textarea
+                    className="add-input"
+                    type="text"
+                    placeholder="quick overview:"
+                    name="overview"
+                    onChange={handleValues}
+                    value={product.overview}
+                ></textarea>
+                <textarea
+                    className="add-input"
+                    type="text"
+                    placeholder="description"
+                    name="description"
+                    onChange={handleValues}
+                    value={product.description}
+                ></textarea>
+                <input
+                    className="add-input"
+                    onChange={handleValues}
+                    value={product.image}
+                    type="text"
+                    placeholder="image"
+                    name="image"
+                />
             </div>
-        </div>
+            <button className="button-add" onClick={handleClick}>
+                Add
+            </button>
+        </Container>
     );
 };
-
 export default AddProduct;

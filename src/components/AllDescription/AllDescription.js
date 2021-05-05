@@ -112,6 +112,17 @@ const AllDescription = (props) => {
                                     data-zoom={productDetails.image}
                                     // srcZoom={productDetails.image}
                                 />
+                                <div className="btn">
+                                    <Button
+                                        // className="btn__button"
+                                        style={{
+                                            fontSize: "20px",
+                                            border: "2px solid black",
+                                        }}
+                                    >
+                                        <a href="#aiperi">Full Description</a>
+                                    </Button>
+                                </div>
                             </div>
                             <div
                                 className="table__cart_desc   detail"
@@ -157,7 +168,7 @@ const AllDescription = (props) => {
                                 <div className="table__cart_quick_subtitle">
                                     {productDetails.overview}
                                 </div>
-                                <div className="btn">
+                                {/* <div className="btn">
                                     <Button
                                         style={{
                                             fontSize: "20px",
@@ -166,9 +177,12 @@ const AllDescription = (props) => {
                                     >
                                         <a href="#aiperi">Full Description</a>
                                     </Button>
-                                </div>
+                                </div> */}
                                 <div id="aiperi ">
-                                    {productDetails.description}
+                                    <p className="table__text_p">
+                                        {" "}
+                                        {productDetails.description}
+                                    </p>
                                 </div>
                             </div>
                             <div>

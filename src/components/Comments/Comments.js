@@ -29,38 +29,62 @@ const Comments = () => {
         <>
             <Comment.Group>
                 {console.log(comments)}
-                {/* {comments.map((comment) => ( */}
+
                 <Comment>
-                    <Comment.Avatar src="https://react.semantic-ui.com/images/avatar/small/joe.jpg" />
+                    <Comment.Avatar
+                        className="avatar"
+                        src="https://react.semantic-ui.com/images/avatar/small/joe.jpg"
+                    />
                     <Comment.Content>
-                        <Comment.Author>comment.email</Comment.Author>
+                        <Comment.Author>
+                            <h4 className="author">Your email </h4>
+                        </Comment.Author>
+                        <Form.TextArea className="enter__text" />
                         <Comment.Metadata>
-                            <div>comment.createdAt</div>
+                            <h4 className="author">Create your comments</h4>
                         </Comment.Metadata>
+                        <Form.TextArea
+                            className="enter__text"
+                            value={comment}
+                            onChange={(e) => setComment(e.target.value)}
+                        />
+
                         <Comment.Text>
                             <p>{comment.text}</p>
                         </Comment.Text>
                     </Comment.Content>
+                    <Form reply>
+                        <Button
+                            className="btn__comment"
+                            style={{
+                                fontSize: "20px",
+                                border: "2px solid black",
+                            }}
+                            onClick={sendComment}
+                            content="Add Comment"
+                        ></Button>
+                    </Form>
                 </Comment>
-                {/* ))} */}
-                <Form reply>
-                    <Form.TextArea />
+            </Comment.Group>
+
+            {/* <Form reply>
+                    <Form.TextArea className="enter__text" />
                     <TextField
                         variant={"outlined"}
                         fullWidth
                         rowsMax={2}
                         value={comment}
                         onChange={(e) => setComment(e.target.value)}
-                    />
-                    <Button
+                    /> */}
+            {/* <Button
                         onClick={sendComment}
                         content="Add Comment"
                         labelPosition="left"
                         icon="edit"
                         primary
-                    />
-                </Form>
-            </Comment.Group>
+                    /> */}
+            {/* </Form>
+            </Comment.Group> */}
         </>
     );
 };
