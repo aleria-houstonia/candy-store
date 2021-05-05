@@ -7,7 +7,7 @@ import { adminUID } from "../../helpers/API";
 const Header = () => {
     const { currentUser } = useAuth();
     const history = useHistory();
-    const [div, setDiv] = useState(true);
+
     const [searchValue, setSearchValue] = useState(getSearchValue());
     const { getProducts, searchData, searchh } = useContext(productContext);
     // const [searchValue, setSearchValue] = useState("");
@@ -93,6 +93,7 @@ const Header = () => {
                                     data-target="#navbar-menu"
                                 >
                                     <i className="fa fa-bars"></i>
+                                    <a href="#" class="menu-btn"></a>
                                 </button>
                             </div>
                             <div

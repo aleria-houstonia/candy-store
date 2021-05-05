@@ -134,50 +134,9 @@ const AllDescription = (props) => {
                                     <div className="table__cart_quick_subtitle">
                                         {productDetails.overview}
                                     </div>
-                                    <div>
-                                        <a href="#aiperi">
-                                            <button
-                                                className="button-des"
-                                                // style={{
-                                                //     fontSize: "20px",
-                                                //     border: "2px solid black",
-                                                // }}
-                                            >
-                                                Full Description
-                                            </button>
-                                        </a>
-                                    </div>
                                     <div className="table-price">
                                         ${productDetails.price}
                                     </div>
-                                    <div
-                                        style={{
-                                            display: "flex",
-                                        }}
-                                    >
-                                        <button
-                                            className="button-des"
-                                            onClick={() =>
-                                                addProductToCart(props.item)
-                                            }
-                                        >
-                                            Add to Cart
-                                        </button>
-                                        {currentUser &&
-                                        currentUser.uid === adminUID ? (
-                                            <div>
-                                                <button
-                                                    className="button-des"
-                                                    onClick={() =>
-                                                        setEditStatus(true)
-                                                    }
-                                                >
-                                                    {/* <img src="https://www.freeiconspng.com/uploads/edit-icon-orange-pencil-0.png" /> */}
-                                                    Edit
-                                                </button>
-                                            </div>
-                                        ) : null}
-                                    </div>{" "}
                                 </div>
                             </div>
                             <div id="aiperi " className="table-desc">
@@ -185,6 +144,19 @@ const AllDescription = (props) => {
                             </div>
                         </div>
                     )}
+                    <div className="buttons-description">
+                        {currentUser && currentUser.uid === adminUID ? (
+                            <div>
+                                <button
+                                    className="button-des"
+                                    onClick={() => setEditStatus(true)}
+                                >
+                                    {/* <img src="https://www.freeiconspng.com/uploads/edit-icon-orange-pencil-0.png" /> */}
+                                    Edit
+                                </button>
+                            </div>
+                        ) : null}
+                    </div>
                 </div>
             ) : (
                 "details"

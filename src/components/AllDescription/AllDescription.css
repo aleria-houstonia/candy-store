@@ -41,7 +41,9 @@
 .button-des :hover a {
     color: #fff;
 }
-
+.buttons-description {
+    display: flex;
+}
 .button-des {
     border: 2px solid #a85425;
     /* width: 100%; */

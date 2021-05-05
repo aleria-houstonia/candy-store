@@ -1,4 +1,3 @@
-import { CircularProgress } from "@material-ui/core";
 import React, { useContext, useEffect, useState } from "react";
 import { productContext } from "../../contexts/ProductsContext";
 import { calcTotalPrice } from "../../helpers/calcPrice";
@@ -97,8 +96,6 @@ const Cart = () => {
                     </button>
                 </div>
             ) : (
-                // <CircularProgress />
-
                 <h1 className="cart-noprod" style={{ textAlign: "center" }}>
                     Корзина пуста
                 </h1>
