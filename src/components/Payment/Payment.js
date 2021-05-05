@@ -2,7 +2,7 @@ import React from "react";
 import Cards from "react-credit-cards";
 import "react-credit-cards/es/styles-compiled.css";
 import "../Payment/Payment.css";
-import { useHistory } from "react-router-dom";
+import { createBrowserHistory } from "history";
 export default class PaymentForm extends React.Component {
     state = {
         cvc: "",
@@ -20,6 +20,10 @@ export default class PaymentForm extends React.Component {
         const { name, value } = e.target;
 
         this.setState({ [name]: value });
+    };
+    paynow = () => {
+        const { history } = this.props;
+        history.push("/");
     };
 
     render() {
@@ -67,7 +71,9 @@ export default class PaymentForm extends React.Component {
                         onFocus={this.handleInputFocus}
                     />
 
-                    <button className="pay_now">Pay now</button>
+                    <button className="pay_now" onClick={this.paynow}>
+                        Pay now
+                    </button>
                 </form>
             </div>
         );

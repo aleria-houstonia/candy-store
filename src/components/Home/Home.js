@@ -3,12 +3,15 @@ import "./Home.css";
 import Carousel from "../Carousel/Carousel";
 import Slider from "../Slider/Slider";
 import CardDescription from "../CardDescription/CardDescription";
-const Home = () => {
+import MultiCarousel from "../MultiCarousel/MultiCarousel";
+const Home = ({ history }) => {
+    console.log(history);
     return (
         <div>
             <Slider />
             <Carousel />
             <CardDescription />
+            {/* <MultiCarousel history={history} /> */}
         </div>
     );
 };
