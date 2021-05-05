@@ -24,41 +24,59 @@ import { useAuth } from "../src/contexts/AuthContext";
 // import { publicRoutes, userRoutes } from "./Routesagain";
 import AdminRoutes from "./AdminRoutes";
 import Events from "./components/Events/Events";
+import CommentContextProvider from "./contexts/CommentContext";
 
 const Routes = () => {
     const { currentUser } = useAuth();
 
     return (
         <ProductsContextProvider>
-            <BrowserRouter>
-                <Header />
-                <Switch>
-                    <PrivateRoute
-                        path="/update-profile"
-                        component={UpdateProfile}
-                    />
-                    <PrivateRoute exact path="/dash" component={Dashboard} />
-                    <PrivateRoute path="/cart" component={Cart} />
-                    <PrivateRoute path="/payment" component={PaymentForm} />
-                    {/* <PrivateRoute path="/order" component={OrderSummary} /> */}
-                    <AdminRoutes path="/add" component={AddProduct} />
-                    <Route exact path="/location" component={Locations} />
-                    <Route exact path="/products" component={ProductsList} />
-                    <Route exact path="/all/:id" component={AllDescription} />
-                    <Route exact path="/login" component={Login} />
-                    <Route exact path="/signup" component={Signup} />
-                    <Route exact path="/" component={Home} />
-                    <Route path="/forgot-password" component={ForgotPassword} />
-                    <Route path="/shop" component={Shop} />
-                    {/* <Route exact path="/dash" component={Dashboard} /> */}
-                    <PrivateRoute
-                        path="/update-profile"
-                        component={UpdateProfile}
-                    />
-                    <Route exact path="/events" component={Events} />
-                </Switch>
-                <Footer />
-            </BrowserRouter>
+            <CommentContextProvider>
+                <BrowserRouter>
+                    <Header />
+                    <Switch>
+                        <PrivateRoute
+                            path="/update-profile"
+                            component={UpdateProfile}
+                        />
+                        <PrivateRoute
+                            exact
+                            path="/dash"
+                            component={Dashboard}
+                        />
+                        <PrivateRoute path="/cart" component={Cart} />
+                        <PrivateRoute path="/payment" component={PaymentForm} />
+                        {/* <PrivateRoute path="/order" component={OrderSummary} /> */}
+                        <AdminRoutes path="/add" component={AddProduct} />
+                        <Route exact path="/location" component={Locations} />
+                        <Route
+                            exact
+                            path="/products"
+                            component={ProductsList}
+                        />
+                        <Route
+                            exact
+                            path="/all/:id"
+                            component={AllDescription}
+                        />
+                        <Route exact path="/login" component={Login} />
+                        <Route exact path="/signup" component={Signup} />
+                        <Route exact path="/" component={Home} />
+                        <Route
+                            path="/forgot-password"
+                            component={ForgotPassword}
+                        />
+                        <Route path="/shop" component={Shop} />
+                        {/* <Route exact path="/dash" component={Dashboard} /> */}
+                        <PrivateRoute
+                            path="/update-profile"
+                            component={UpdateProfile}
+                        />
+                        <Route exact path="/events" component={Events} />
+                    </Switch>
+                    {/* <Footer /> */}
+                </BrowserRouter>
+            </CommentContextProvider>
         </ProductsContextProvider>
     );
 };

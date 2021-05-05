@@ -24,6 +24,9 @@ const Header = () => {
         const search = new URLSearchParams(history.location.search);
         return search.get("q");
     }
+    function pushHistory() {
+        history.push("/products?category=cheese");
+    }
     return (
         <>
             <div className="title">
@@ -108,7 +111,7 @@ const Header = () => {
                                             GIFTS<span></span>{" "}
                                         </Link>
                                     </li>
-                                    <li>
+                                    <li onClick={pushHistory}>
                                         <a href="#" data-hover="About   ">
                                             {" "}
                                             CHEESE <span></span>{" "}

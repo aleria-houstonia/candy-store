@@ -45,9 +45,9 @@ const reducer = (state = INIT_STATE, action) => {
 const ProductsContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
-    const postProduct = (products) => {
+    const postProduct = (products, his) => {
         axios.post("http://localhost:8000/products", products);
-        getProducts();
+        getProducts(his);
     };
 
     async function getProducts(history) {

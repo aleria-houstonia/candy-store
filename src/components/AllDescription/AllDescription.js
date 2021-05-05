@@ -84,6 +84,14 @@ const AllDescription = (props) => {
                                 {productDetails.title}
                             </textarea>
                             <textarea
+                                name="category"
+                                onChange={handleValue}
+                                className="edit-details_items"
+                                placeholder="category"
+                            >
+                                {productDetails.category}
+                            </textarea>
+                            <textarea
                                 name="overview"
                                 onChange={handleValue}
                                 className="edit-details_items"
