@@ -131,9 +131,9 @@ const Header = () => {
                                         <ul className="dropdown-menu animated">
                                             <li>
                                                 {" "}
-                                                <a href="">Custom menu</a>{" "}
-                                                <a href="">Custom menu</a>
-                                                <a href="">Custom menu</a>
+                                                <Link to="/shop">shop</Link>
+                                                {/* <a href="">Custom menu</a>
+                                                <a href="">Custom menu</a> */}
                                             </li>
                                         </ul>
                                     </li>
