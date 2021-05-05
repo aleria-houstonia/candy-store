@@ -20,6 +20,7 @@ const CommentContextProvider = ({ children }) => {
 
     function postNewComment(comment) {
         axios.post("http://localhost:8000/comments", comment);
+        getComment();
     }
     async function getComment() {
         let { data } = await axios("http://localhost:8000/comments");

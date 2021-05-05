@@ -25,6 +25,7 @@ import { useAuth } from "../src/contexts/AuthContext";
 import AdminRoutes from "./AdminRoutes";
 import Events from "./components/Events/Events";
 import CommentContextProvider from "./contexts/CommentContext";
+import Comments from "./components/Comments/Comments";
 
 const Routes = () => {
     const { currentUser } = useAuth();
@@ -45,6 +46,8 @@ const Routes = () => {
                             component={Dashboard}
                         />
                         <PrivateRoute path="/cart" component={Cart} />
+                        <PrivateRoute path="/comments" component={Comments} />
+                        <AdminRoutes path="/comments" component={Comments} />
                         <PrivateRoute path="/payment" component={PaymentForm} />
                         {/* <PrivateRoute path="/order" component={OrderSummary} /> */}
                         <AdminRoutes path="/add" component={AddProduct} />
@@ -74,7 +77,7 @@ const Routes = () => {
                         />
                         <Route exact path="/events" component={Events} />
                     </Switch>
-                    {/* <Footer /> */}
+                    <Footer />
                 </BrowserRouter>
             </CommentContextProvider>
         </ProductsContextProvider>

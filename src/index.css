@@ -12,17 +12,17 @@
 .loader {
     border: 0 solid transparent;
     border-radius: 50%;
-    width: 150px;
-    height: 150px;
+    width: 250px;
+    height: 250px;
     position: absolute;
     top: calc(50vh - 90px);
-    left: 40%;
+    left: 42%;
 }
 
 .loader::before,
 .loader::after {
     content: "";
-    border: 1em solid #ff5733;
+    border: 1em solid #f077a9d7;
     border-radius: 50%;
     width: inherit;
     height: inherit;

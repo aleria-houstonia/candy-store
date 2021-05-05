@@ -7,7 +7,7 @@ import { adminUID } from "../../helpers/API";
 const Header = () => {
     const { currentUser } = useAuth();
     const history = useHistory();
-    const [div, setDiv] = useState(true);
+
     const [searchValue, setSearchValue] = useState(getSearchValue());
     const { getProducts, searchData, searchh } = useContext(productContext);
     // const [searchValue, setSearchValue] = useState("");
@@ -86,14 +86,15 @@ const Header = () => {
                     <div className="col-md-12">
                         <nav className="navbar navbar-default navbar-mobile bootsnav on">
                             <div className="navbar-header">
-                                <button
+                                {/* <button
                                     type="button "
                                     className="navbar-toggle"
                                     data-toggle="collapse"
                                     data-target="#navbar-menu"
                                 >
                                     <i className="fa fa-bars"></i>
-                                </button>
+                                    <a href="#" class="menu-btn"></a>
+                                </button> */}
                             </div>
                             <div
                                 className="collapse navbar-collapse "

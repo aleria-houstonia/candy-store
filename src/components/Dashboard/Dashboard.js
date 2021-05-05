@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import { Card, Button, Container, Alert } from "react-bootstrap";
-
+import "./Dashboard.css";
 const Dashboard = () => {
     const [error, setError] = useState("");
     const { currentUser, logout } = useAuth();
@@ -20,7 +20,7 @@ const Dashboard = () => {
     }
 
     return (
-        <>
+        <div className="maindash">
             {" "}
             <Container
                 className="d-flex align-items-center justify-content-center"
@@ -47,7 +47,7 @@ const Dashboard = () => {
                     </div>
                 </div>
             </Container>
-        </>
+        </div>
     );
 };
 export default Dashboard;
